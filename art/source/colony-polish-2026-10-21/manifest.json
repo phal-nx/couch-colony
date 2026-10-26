@@ -1,0 +1,1251 @@
+{
+  "version": 1,
+  "generator": "built-in image_gen",
+  "created": "2026-10-21",
+  "files": [
+    {
+      "id": "creature_acting",
+      "file": "creature_acting_source.png",
+      "width": 1024,
+      "height": 1536,
+      "columns": 4,
+      "rows": 6,
+      "intendedLogicalCell": 64,
+      "alpha": {
+        "transparentPixels": 1165124,
+        "opaquePixels": 0,
+        "softPixels": 407740
+      },
+      "cells": [
+        {
+          "row": 0,
+          "column": 0,
+          "sourceRect": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "alpha128BoundsWithinCell": [
+            69,
+            132,
+            225,
+            222
+          ]
+        },
+        {
+          "row": 0,
+          "column": 1,
+          "sourceRect": [
+            256,
+            0,
+            512,
+            256
+          ],
+          "alpha128BoundsWithinCell": [
+            63,
+            114,
+            215,
+            222
+          ]
+        },
+        {
+          "row": 0,
+          "column": 2,
+          "sourceRect": [
+            512,
+            0,
+            768,
+            256
+          ],
+          "alpha128BoundsWithinCell": [
+            54,
+            125,
+            199,
+            231
+          ]
+        },
+        {
+          "row": 0,
+          "column": 3,
+          "sourceRect": [
+            768,
+            0,
+            1024,
+            256
+          ],
+          "alpha128BoundsWithinCell": [
+            48,
+            135,
+            188,
+            224
+          ]
+        },
+        {
+          "row": 1,
+          "column": 0,
+          "sourceRect": [
+            0,
+            256,
+            256,
+            512
+          ],
+          "alpha128BoundsWithinCell": [
+            69,
+            80,
+            237,
+            190
+          ]
+        },
+        {
+          "row": 1,
+          "column": 1,
+          "sourceRect": [
+            256,
+            256,
+            512,
+            512
+          ],
+          "alpha128BoundsWithinCell": [
+            62,
+            106,
+            238,
+            191
+          ]
+        },
+        {
+          "row": 1,
+          "column": 2,
+          "sourceRect": [
+            512,
+            256,
+            768,
+            512
+          ],
+          "alpha128BoundsWithinCell": [
+            50,
+            103,
+            224,
+            201
+          ]
+        },
+        {
+          "row": 1,
+          "column": 3,
+          "sourceRect": [
+            768,
+            256,
+            1024,
+            512
+          ],
+          "alpha128BoundsWithinCell": [
+            49,
+            94,
+            217,
+            189
+          ]
+        },
+        {
+          "row": 2,
+          "column": 0,
+          "sourceRect": [
+            0,
+            512,
+            256,
+            768
+          ],
+          "alpha128BoundsWithinCell": [
+            43,
+            48,
+            256,
+            194
+          ]
+        },
+        {
+          "row": 2,
+          "column": 1,
+          "sourceRect": [
+            256,
+            512,
+            512,
+            768
+          ],
+          "alpha128BoundsWithinCell": [
+            0,
+            46,
+            240,
+            194
+          ]
+        },
+        {
+          "row": 2,
+          "column": 2,
+          "sourceRect": [
+            512,
+            512,
+            768,
+            768
+          ],
+          "alpha128BoundsWithinCell": [
+            27,
+            46,
+            240,
+            194
+          ]
+        },
+        {
+          "row": 2,
+          "column": 3,
+          "sourceRect": [
+            768,
+            512,
+            1024,
+            768
+          ],
+          "alpha128BoundsWithinCell": [
+            34,
+            61,
+            234,
+            193
+          ]
+        },
+        {
+          "row": 3,
+          "column": 0,
+          "sourceRect": [
+            0,
+            768,
+            256,
+            1024
+          ],
+          "alpha128BoundsWithinCell": [
+            76,
+            53,
+            230,
+            256
+          ]
+        },
+        {
+          "row": 3,
+          "column": 1,
+          "sourceRect": [
+            256,
+            768,
+            512,
+            1024
+          ],
+          "alpha128BoundsWithinCell": [
+            68,
+            49,
+            225,
+            256
+          ]
+        },
+        {
+          "row": 3,
+          "column": 2,
+          "sourceRect": [
+            512,
+            768,
+            768,
+            1024
+          ],
+          "alpha128BoundsWithinCell": [
+            63,
+            49,
+            209,
+            145
+          ]
+        },
+        {
+          "row": 3,
+          "column": 3,
+          "sourceRect": [
+            768,
+            768,
+            1024,
+            1024
+          ],
+          "alpha128BoundsWithinCell": [
+            57,
+            40,
+            204,
+            256
+          ]
+        },
+        {
+          "row": 4,
+          "column": 0,
+          "sourceRect": [
+            0,
+            1024,
+            256,
+            1280
+          ],
+          "alpha128BoundsWithinCell": [
+            44,
+            0,
+            243,
+            152
+          ]
+        },
+        {
+          "row": 4,
+          "column": 1,
+          "sourceRect": [
+            256,
+            1024,
+            512,
+            1280
+          ],
+          "alpha128BoundsWithinCell": [
+            48,
+            0,
+            254,
+            153
+          ]
+        },
+        {
+          "row": 4,
+          "column": 2,
+          "sourceRect": [
+            512,
+            1024,
+            768,
+            1280
+          ],
+          "alpha128BoundsWithinCell": [
+            38,
+            10,
+            256,
+            149
+          ]
+        },
+        {
+          "row": 4,
+          "column": 3,
+          "sourceRect": [
+            768,
+            1024,
+            1024,
+            1280
+          ],
+          "alpha128BoundsWithinCell": [
+            0,
+            0,
+            226,
+            151
+          ]
+        },
+        {
+          "row": 5,
+          "column": 0,
+          "sourceRect": [
+            0,
+            1280,
+            256,
+            1536
+          ],
+          "alpha128BoundsWithinCell": [
+            42,
+            1,
+            254,
+            133
+          ]
+        },
+        {
+          "row": 5,
+          "column": 1,
+          "sourceRect": [
+            256,
+            1280,
+            512,
+            1536
+          ],
+          "alpha128BoundsWithinCell": [
+            46,
+            10,
+            247,
+            135
+          ]
+        },
+        {
+          "row": 5,
+          "column": 2,
+          "sourceRect": [
+            512,
+            1280,
+            768,
+            1536
+          ],
+          "alpha128BoundsWithinCell": [
+            38,
+            5,
+            237,
+            138
+          ]
+        },
+        {
+          "row": 5,
+          "column": 3,
+          "sourceRect": [
+            768,
+            1280,
+            1024,
+            1536
+          ],
+          "alpha128BoundsWithinCell": [
+            26,
+            3,
+            229,
+            135
+          ]
+        }
+      ],
+      "status": "generated source; normalize native grid, frame pivots and binary alpha before runtime packing"
+    },
+    {
+      "id": "visitor_motion",
+      "file": "visitor_motion_source.png",
+      "width": 1254,
+      "height": 1254,
+      "columns": 4,
+      "rows": 4,
+      "intendedLogicalCell": 64,
+      "alpha": {
+        "transparentPixels": 838154,
+        "opaquePixels": 51,
+        "softPixels": 734311
+      },
+      "cells": [
+        {
+          "row": 0,
+          "column": 0,
+          "sourceRect": [
+            0,
+            0,
+            313,
+            313
+          ],
+          "alpha128BoundsWithinCell": [
+            46,
+            78,
+            282,
+            284
+          ]
+        },
+        {
+          "row": 0,
+          "column": 1,
+          "sourceRect": [
+            313,
+            0,
+            627,
+            313
+          ],
+          "alpha128BoundsWithinCell": [
+            63,
+            89,
+            281,
+            280
+          ]
+        },
+        {
+          "row": 0,
+          "column": 2,
+          "sourceRect": [
+            627,
+            0,
+            940,
+            313
+          ],
+          "alpha128BoundsWithinCell": [
+            48,
+            124,
+            270,
+            267
+          ]
+        },
+        {
+          "row": 0,
+          "column": 3,
+          "sourceRect": [
+            940,
+            0,
+            1254,
+            313
+          ],
+          "alpha128BoundsWithinCell": [
+            63,
+            88,
+            268,
+            279
+          ]
+        },
+        {
+          "row": 1,
+          "column": 0,
+          "sourceRect": [
+            0,
+            313,
+            313,
+            627
+          ],
+          "alpha128BoundsWithinCell": [
+            36,
+            75,
+            290,
+            262
+          ]
+        },
+        {
+          "row": 1,
+          "column": 1,
+          "sourceRect": [
+            313,
+            313,
+            627,
+            627
+          ],
+          "alpha128BoundsWithinCell": [
+            28,
+            71,
+            292,
+            266
+          ]
+        },
+        {
+          "row": 1,
+          "column": 2,
+          "sourceRect": [
+            627,
+            313,
+            940,
+            627
+          ],
+          "alpha128BoundsWithinCell": [
+            27,
+            76,
+            290,
+            265
+          ]
+        },
+        {
+          "row": 1,
+          "column": 3,
+          "sourceRect": [
+            940,
+            313,
+            1254,
+            627
+          ],
+          "alpha128BoundsWithinCell": [
+            36,
+            70,
+            288,
+            266
+          ]
+        },
+        {
+          "row": 2,
+          "column": 0,
+          "sourceRect": [
+            0,
+            627,
+            313,
+            940
+          ],
+          "alpha128BoundsWithinCell": [
+            36,
+            74,
+            291,
+            230
+          ]
+        },
+        {
+          "row": 2,
+          "column": 1,
+          "sourceRect": [
+            313,
+            627,
+            627,
+            940
+          ],
+          "alpha128BoundsWithinCell": [
+            23,
+            71,
+            301,
+            238
+          ]
+        },
+        {
+          "row": 2,
+          "column": 2,
+          "sourceRect": [
+            627,
+            627,
+            940,
+            940
+          ],
+          "alpha128BoundsWithinCell": [
+            10,
+            53,
+            302,
+            238
+          ]
+        },
+        {
+          "row": 2,
+          "column": 3,
+          "sourceRect": [
+            940,
+            627,
+            1254,
+            940
+          ],
+          "alpha128BoundsWithinCell": [
+            37,
+            79,
+            294,
+            234
+          ]
+        },
+        {
+          "row": 3,
+          "column": 0,
+          "sourceRect": [
+            0,
+            940,
+            313,
+            1254
+          ],
+          "alpha128BoundsWithinCell": [
+            54,
+            52,
+            273,
+            225
+          ]
+        },
+        {
+          "row": 3,
+          "column": 1,
+          "sourceRect": [
+            313,
+            940,
+            627,
+            1254
+          ],
+          "alpha128BoundsWithinCell": [
+            39,
+            35,
+            268,
+            221
+          ]
+        },
+        {
+          "row": 3,
+          "column": 2,
+          "sourceRect": [
+            627,
+            940,
+            940,
+            1254
+          ],
+          "alpha128BoundsWithinCell": [
+            30,
+            28,
+            268,
+            221
+          ]
+        },
+        {
+          "row": 3,
+          "column": 3,
+          "sourceRect": [
+            940,
+            940,
+            1254,
+            1254
+          ],
+          "alpha128BoundsWithinCell": [
+            31,
+            35,
+            268,
+            221
+          ]
+        }
+      ],
+      "status": "generated source; normalize native grid, frame pivots and binary alpha before runtime packing"
+    },
+    {
+      "id": "terrarium_props",
+      "file": "terrarium_props_source.png",
+      "width": 1254,
+      "height": 1254,
+      "columns": 4,
+      "rows": 4,
+      "intendedLogicalCell": 64,
+      "alpha": {
+        "transparentPixels": 941844,
+        "opaquePixels": 529,
+        "softPixels": 630143
+      },
+      "cells": [
+        {
+          "row": 0,
+          "column": 0,
+          "sourceRect": [
+            0,
+            0,
+            313,
+            313
+          ],
+          "alpha128BoundsWithinCell": [
+            34,
+            136,
+            299,
+            310
+          ]
+        },
+        {
+          "row": 0,
+          "column": 1,
+          "sourceRect": [
+            313,
+            0,
+            627,
+            313
+          ],
+          "alpha128BoundsWithinCell": [
+            59,
+            165,
+            281,
+            307
+          ]
+        },
+        {
+          "row": 0,
+          "column": 2,
+          "sourceRect": [
+            627,
+            0,
+            940,
+            313
+          ],
+          "alpha128BoundsWithinCell": [
+            47,
+            64,
+            287,
+            313
+          ]
+        },
+        {
+          "row": 0,
+          "column": 3,
+          "sourceRect": [
+            940,
+            0,
+            1254,
+            313
+          ],
+          "alpha128BoundsWithinCell": [
+            34,
+            178,
+            281,
+            307
+          ]
+        },
+        {
+          "row": 1,
+          "column": 0,
+          "sourceRect": [
+            0,
+            313,
+            313,
+            627
+          ],
+          "alpha128BoundsWithinCell": [
+            32,
+            128,
+            298,
+            287
+          ]
+        },
+        {
+          "row": 1,
+          "column": 1,
+          "sourceRect": [
+            313,
+            313,
+            627,
+            627
+          ],
+          "alpha128BoundsWithinCell": [
+            22,
+            98,
+            307,
+            288
+          ]
+        },
+        {
+          "row": 1,
+          "column": 2,
+          "sourceRect": [
+            627,
+            313,
+            940,
+            627
+          ],
+          "alpha128BoundsWithinCell": [
+            20,
+            0,
+            297,
+            293
+          ]
+        },
+        {
+          "row": 1,
+          "column": 3,
+          "sourceRect": [
+            940,
+            313,
+            1254,
+            627
+          ],
+          "alpha128BoundsWithinCell": [
+            7,
+            88,
+            290,
+            284
+          ]
+        },
+        {
+          "row": 2,
+          "column": 0,
+          "sourceRect": [
+            0,
+            627,
+            313,
+            940
+          ],
+          "alpha128BoundsWithinCell": [
+            32,
+            93,
+            296,
+            269
+          ]
+        },
+        {
+          "row": 2,
+          "column": 1,
+          "sourceRect": [
+            313,
+            627,
+            627,
+            940
+          ],
+          "alpha128BoundsWithinCell": [
+            24,
+            104,
+            291,
+            273
+          ]
+        },
+        {
+          "row": 2,
+          "column": 2,
+          "sourceRect": [
+            627,
+            627,
+            940,
+            940
+          ],
+          "alpha128BoundsWithinCell": [
+            24,
+            97,
+            293,
+            277
+          ]
+        },
+        {
+          "row": 2,
+          "column": 3,
+          "sourceRect": [
+            940,
+            627,
+            1254,
+            940
+          ],
+          "alpha128BoundsWithinCell": [
+            26,
+            79,
+            289,
+            273
+          ]
+        },
+        {
+          "row": 3,
+          "column": 0,
+          "sourceRect": [
+            0,
+            940,
+            313,
+            1254
+          ],
+          "alpha128BoundsWithinCell": [
+            37,
+            31,
+            285,
+            250
+          ]
+        },
+        {
+          "row": 3,
+          "column": 1,
+          "sourceRect": [
+            313,
+            940,
+            627,
+            1254
+          ],
+          "alpha128BoundsWithinCell": [
+            28,
+            60,
+            294,
+            233
+          ]
+        },
+        {
+          "row": 3,
+          "column": 2,
+          "sourceRect": [
+            627,
+            940,
+            940,
+            1254
+          ],
+          "alpha128BoundsWithinCell": [
+            51,
+            42,
+            275,
+            255
+          ]
+        },
+        {
+          "row": 3,
+          "column": 3,
+          "sourceRect": [
+            940,
+            940,
+            1254,
+            1254
+          ],
+          "alpha128BoundsWithinCell": [
+            29,
+            75,
+            289,
+            236
+          ]
+        }
+      ],
+      "status": "generated source; normalize native grid, frame pivots and binary alpha before runtime packing"
+    },
+    {
+      "id": "control_status",
+      "file": "control_status_source.png",
+      "width": 1254,
+      "height": 1254,
+      "columns": 4,
+      "rows": 4,
+      "intendedLogicalCell": 32,
+      "alpha": {
+        "transparentPixels": 1161382,
+        "opaquePixels": 3404,
+        "softPixels": 407730
+      },
+      "cells": [
+        {
+          "row": 0,
+          "column": 0,
+          "sourceRect": [
+            0,
+            0,
+            313,
+            313
+          ],
+          "alpha128BoundsWithinCell": [
+            68,
+            132,
+            284,
+            218
+          ]
+        },
+        {
+          "row": 0,
+          "column": 1,
+          "sourceRect": [
+            313,
+            0,
+            627,
+            313
+          ],
+          "alpha128BoundsWithinCell": [
+            57,
+            132,
+            274,
+            218
+          ]
+        },
+        {
+          "row": 0,
+          "column": 2,
+          "sourceRect": [
+            627,
+            0,
+            940,
+            313
+          ],
+          "alpha128BoundsWithinCell": [
+            41,
+            132,
+            258,
+            218
+          ]
+        },
+        {
+          "row": 0,
+          "column": 3,
+          "sourceRect": [
+            940,
+            0,
+            1254,
+            313
+          ],
+          "alpha128BoundsWithinCell": [
+            30,
+            132,
+            246,
+            218
+          ]
+        },
+        {
+          "row": 1,
+          "column": 0,
+          "sourceRect": [
+            0,
+            313,
+            313,
+            627
+          ],
+          "alpha128BoundsWithinCell": [
+            115,
+            87,
+            244,
+            247
+          ]
+        },
+        {
+          "row": 1,
+          "column": 1,
+          "sourceRect": [
+            313,
+            313,
+            627,
+            627
+          ],
+          "alpha128BoundsWithinCell": [
+            88,
+            83,
+            228,
+            251
+          ]
+        },
+        {
+          "row": 1,
+          "column": 2,
+          "sourceRect": [
+            627,
+            313,
+            940,
+            627
+          ],
+          "alpha128BoundsWithinCell": [
+            75,
+            66,
+            224,
+            269
+          ]
+        },
+        {
+          "row": 1,
+          "column": 3,
+          "sourceRect": [
+            940,
+            313,
+            1254,
+            627
+          ],
+          "alpha128BoundsWithinCell": [
+            68,
+            95,
+            215,
+            240
+          ]
+        },
+        {
+          "row": 2,
+          "column": 0,
+          "sourceRect": [
+            0,
+            627,
+            313,
+            940
+          ],
+          "alpha128BoundsWithinCell": [
+            112,
+            56,
+            244,
+            243
+          ]
+        },
+        {
+          "row": 2,
+          "column": 1,
+          "sourceRect": [
+            313,
+            627,
+            627,
+            940
+          ],
+          "alpha128BoundsWithinCell": [
+            65,
+            58,
+            249,
+            243
+          ]
+        },
+        {
+          "row": 2,
+          "column": 2,
+          "sourceRect": [
+            627,
+            627,
+            940,
+            940
+          ],
+          "alpha128BoundsWithinCell": [
+            67,
+            72,
+            233,
+            238
+          ]
+        },
+        {
+          "row": 2,
+          "column": 3,
+          "sourceRect": [
+            940,
+            627,
+            1254,
+            940
+          ],
+          "alpha128BoundsWithinCell": [
+            54,
+            44,
+            226,
+            255
+          ]
+        },
+        {
+          "row": 3,
+          "column": 0,
+          "sourceRect": [
+            0,
+            940,
+            313,
+            1254
+          ],
+          "alpha128BoundsWithinCell": [
+            69,
+            48,
+            275,
+            233
+          ]
+        },
+        {
+          "row": 3,
+          "column": 1,
+          "sourceRect": [
+            313,
+            940,
+            627,
+            1254
+          ],
+          "alpha128BoundsWithinCell": [
+            63,
+            24,
+            265,
+            243
+          ]
+        },
+        {
+          "row": 3,
+          "column": 2,
+          "sourceRect": [
+            627,
+            940,
+            940,
+            1254
+          ],
+          "alpha128BoundsWithinCell": [
+            26,
+            58,
+            268,
+            227
+          ]
+        },
+        {
+          "row": 3,
+          "column": 3,
+          "sourceRect": [
+            940,
+            940,
+            1254,
+            1254
+          ],
+          "alpha128BoundsWithinCell": [
+            55,
+            24,
+            239,
+            241
+          ]
+        }
+      ],
+      "status": "generated source; normalize native grid, frame pivots and binary alpha before runtime packing"
+    }
+  ],
+  "integration": {
+    "runtimeSourceImages": false,
+    "nearestNeighborOnly": true,
+    "requiredAlpha": [
+      0,
+      255
+    ],
+    "walkingFrameSizes": [
+      32,
+      48,
+      64
+    ],
+    "staticPropSize": 64,
+    "uiGlyphSize": 32,
+    "remoteCapsuleSize": [
+      16,
+      8
+    ],
+    "maximumLaneEntities": 64,
+    "maximumNestMovers": 10,
+    "maximumMotes": 96,
+    "roughNativeRgbaBytesBeforeRotation": 983040,
+    "note": "983040 bytes assumes acting6x4x64x64, visitors4x4x64x64, props16x64x64, glyphs16x32x32. Native32/48px acting sprites reduce this. Respect existing atlas budget including old assets; high-resolution source images must never load at runtime."
+  }
+}

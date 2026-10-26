@@ -1,0 +1,250 @@
+{
+  "dir": "../events",
+  "visitors": false,
+  "units": {
+    "mutanthatchery": "event_mutate_brood",
+    "mutantbat": "event_mutate_power",
+    "mutantclone": "event_mutate_clone",
+    "mutantswarmwarp": "event_mutate_time",
+    "mutantrush": "event_mutate_rush",
+    "mutanteach": "event_mutate_meta",
+    "mutantfreq": "event_mutate_freq",
+    "mutantnexus": "event_mutate_energy",
+    "mutantarmy": "event_mutate_territory",
+    "mutantmeat": "event_mutate_crumbs"
+  },
+  "icons": {
+    "event_snack_cereal_ring": {
+      "file": "snack_cereal_ring.png",
+      "view": "right"
+    },
+    "event_snack_pizza_crust": {
+      "file": "snack_pizza_crust.png",
+      "view": "right"
+    },
+    "event_snack_chip": {
+      "file": "snack_chip.png",
+      "view": "right"
+    },
+    "event_egg_case": {
+      "file": "egg_case.png",
+      "view": "right"
+    },
+    "event_molting_roach": {
+      "file": "molting_roach.png",
+      "view": "right"
+    },
+    "event_molt_husk": {
+      "file": "molt_husk.png",
+      "view": "right"
+    },
+    "event_winged_roach_1": {
+      "file": "winged_roach_1.png",
+      "view": "right"
+    },
+    "event_winged_roach_2": {
+      "file": "winged_roach_2.png",
+      "view": "right"
+    },
+    "event_dung_beetle": {
+      "file": "dung_beetle.png",
+      "view": "right"
+    },
+    "event_dung_ball": {
+      "file": "dung_ball.png",
+      "view": "right"
+    },
+    "event_pumpkin": {
+      "file": "pumpkin.png",
+      "view": "right"
+    },
+    "event_snow_cluster": {
+      "file": "snow_cluster.png",
+      "view": "right"
+    },
+    "event_clone_army": {
+      "file": "clone_army.png",
+      "view": "right"
+    },
+    "event_intruder_shield": {
+      "file": "intruder_shield.png",
+      "view": "right"
+    },
+    "event_clover": {
+      "file": "clover.png",
+      "view": "right"
+    },
+    "event_acorn": {
+      "file": "acorn.png",
+      "view": "right"
+    },
+    "event_mutate_brood": {
+      "file": "mutate_brood.png",
+      "view": "right"
+    },
+    "event_mutate_power": {
+      "file": "mutate_power.png",
+      "view": "right"
+    },
+    "event_mutate_clone": {
+      "file": "mutate_clone.png",
+      "view": "right"
+    },
+    "event_mutate_time": {
+      "file": "mutate_time.png",
+      "view": "right"
+    },
+    "event_mutate_rush": {
+      "file": "mutate_rush.png",
+      "view": "right"
+    },
+    "event_mutate_meta": {
+      "file": "mutate_meta.png",
+      "view": "right"
+    },
+    "event_mutate_freq": {
+      "file": "mutate_freq.png",
+      "view": "right"
+    },
+    "event_mutate_energy": {
+      "file": "mutate_energy.png",
+      "view": "right"
+    },
+    "event_mutate_territory": {
+      "file": "mutate_territory.png",
+      "view": "right"
+    },
+    "event_mutate_crumbs": {
+      "file": "mutate_crumbs.png",
+      "view": "right"
+    },
+    "prop_crumb_depot": {
+      "file": "prop_crumb_depot.png",
+      "view": "right"
+    },
+    "prop_nursery_entrance": {
+      "file": "prop_nursery_entrance.png",
+      "view": "right"
+    },
+    "prop_guard_post": {
+      "file": "prop_guard_post.png",
+      "view": "right"
+    },
+    "prop_scout_post": {
+      "file": "prop_scout_post.png",
+      "view": "right"
+    },
+    "prop_bottlecap": {
+      "file": "prop_bottlecap.png",
+      "view": "right"
+    },
+    "prop_bark_bridge": {
+      "file": "prop_bark_bridge.png",
+      "view": "right"
+    },
+    "prop_stone_burrow": {
+      "file": "prop_stone_burrow.png",
+      "view": "right"
+    },
+    "prop_dry_leaves": {
+      "file": "prop_dry_leaves.png",
+      "view": "right"
+    },
+    "keepsake_beetle_shell": {
+      "file": "keepsake_beetle_shell.png",
+      "view": "right"
+    },
+    "keepsake_cricket_shell": {
+      "file": "keepsake_cricket_shell.png",
+      "view": "right"
+    },
+    "keepsake_moth_stone": {
+      "file": "keepsake_moth_stone.png",
+      "view": "right"
+    },
+    "keepsake_snail_shell": {
+      "file": "keepsake_snail_shell.png",
+      "view": "right"
+    },
+    "prop_travel_parcel": {
+      "file": "prop_travel_parcel.png",
+      "view": "right"
+    },
+    "prop_trail_markers": {
+      "file": "prop_trail_markers.png",
+      "view": "right"
+    },
+    "prop_resin_stones": {
+      "file": "prop_resin_stones.png",
+      "view": "right"
+    },
+    "prop_bark_shelf": {
+      "file": "prop_bark_shelf.png",
+      "view": "right"
+    },
+    "visitor_pantry_moth_1": {
+      "file": "visitor_pantry_moth_1.png",
+      "view": "right"
+    },
+    "visitor_pantry_moth_2": {
+      "file": "visitor_pantry_moth_2.png",
+      "view": "right"
+    },
+    "visitor_pantry_moth_3": {
+      "file": "visitor_pantry_moth_3.png",
+      "view": "right"
+    },
+    "visitor_pantry_moth_4": {
+      "file": "visitor_pantry_moth_4.png",
+      "view": "right"
+    },
+    "visitor_stag_beetle_1": {
+      "file": "visitor_stag_beetle_1.png",
+      "view": "right"
+    },
+    "visitor_stag_beetle_2": {
+      "file": "visitor_stag_beetle_2.png",
+      "view": "right"
+    },
+    "visitor_stag_beetle_3": {
+      "file": "visitor_stag_beetle_3.png",
+      "view": "right"
+    },
+    "visitor_stag_beetle_4": {
+      "file": "visitor_stag_beetle_4.png",
+      "view": "right"
+    },
+    "visitor_camel_cricket_1": {
+      "file": "visitor_camel_cricket_1.png",
+      "view": "right"
+    },
+    "visitor_camel_cricket_2": {
+      "file": "visitor_camel_cricket_2.png",
+      "view": "right"
+    },
+    "visitor_camel_cricket_3": {
+      "file": "visitor_camel_cricket_3.png",
+      "view": "right"
+    },
+    "visitor_camel_cricket_4": {
+      "file": "visitor_camel_cricket_4.png",
+      "view": "right"
+    },
+    "visitor_firefly_1": {
+      "file": "visitor_firefly_1.png",
+      "view": "right"
+    },
+    "visitor_firefly_2": {
+      "file": "visitor_firefly_2.png",
+      "view": "right"
+    },
+    "visitor_firefly_3": {
+      "file": "visitor_firefly_3.png",
+      "view": "right"
+    },
+    "visitor_firefly_4": {
+      "file": "visitor_firefly_4.png",
+      "view": "right"
+    }
+  }
+}

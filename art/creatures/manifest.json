@@ -1,0 +1,1731 @@
+{
+  "version": 1,
+  "framesPerCreature": 4,
+  "frameDurationMs": 125,
+  "orientation": "strictly-overhead-head-right",
+  "animation": [
+    {
+      "name": "hatchling",
+      "speciesId": "hatchling",
+      "description": "pale cream translucent-looking roach nymph",
+      "size": 32,
+      "frames": 4,
+      "path": "animations/hatchling.png",
+      "atlas": "animations/atlas-32.png",
+      "atlasRow": 0,
+      "rect": [
+        0,
+        0,
+        128,
+        32
+      ],
+      "frameRects": [
+        [
+          0,
+          0,
+          32,
+          32
+        ],
+        [
+          32,
+          0,
+          32,
+          32
+        ],
+        [
+          64,
+          0,
+          32,
+          32
+        ],
+        [
+          96,
+          0,
+          32,
+          32
+        ]
+      ],
+      "uniqueFrames": 4,
+      "mode": "walk"
+    },
+    {
+      "name": "forager",
+      "speciesId": "drone",
+      "description": "small slim tan-brown roach",
+      "size": 32,
+      "frames": 4,
+      "path": "animations/forager.png",
+      "atlas": "animations/atlas-32.png",
+      "atlasRow": 1,
+      "rect": [
+        0,
+        32,
+        128,
+        32
+      ],
+      "frameRects": [
+        [
+          0,
+          0,
+          32,
+          32
+        ],
+        [
+          32,
+          0,
+          32,
+          32
+        ],
+        [
+          64,
+          0,
+          32,
+          32
+        ],
+        [
+          96,
+          0,
+          32,
+          32
+        ]
+      ],
+      "uniqueFrames": 4,
+      "mode": "walk"
+    },
+    {
+      "name": "silverfish",
+      "speciesId": "swarmling",
+      "description": "pale olive-grey tapered silverfish with three tail filaments",
+      "size": 32,
+      "frames": 4,
+      "path": "animations/silverfish.png",
+      "atlas": "animations/atlas-32.png",
+      "atlasRow": 2,
+      "rect": [
+        0,
+        64,
+        128,
+        32
+      ],
+      "frameRects": [
+        [
+          0,
+          0,
+          32,
+          32
+        ],
+        [
+          32,
+          0,
+          32,
+          32
+        ],
+        [
+          64,
+          0,
+          32,
+          32
+        ],
+        [
+          96,
+          0,
+          32,
+          32
+        ]
+      ],
+      "uniqueFrames": 4,
+      "mode": "walk"
+    },
+    {
+      "name": "fire-ant",
+      "speciesId": "stinger",
+      "description": "rust red fire ant, segmented waist and pointed stinger",
+      "size": 32,
+      "frames": 4,
+      "path": "animations/fire-ant.png",
+      "atlas": "animations/atlas-32.png",
+      "atlasRow": 3,
+      "rect": [
+        0,
+        96,
+        128,
+        32
+      ],
+      "frameRects": [
+        [
+          0,
+          0,
+          32,
+          32
+        ],
+        [
+          32,
+          0,
+          32,
+          32
+        ],
+        [
+          64,
+          0,
+          32,
+          32
+        ],
+        [
+          96,
+          0,
+          32,
+          32
+        ]
+      ],
+      "uniqueFrames": 4,
+      "mode": "walk"
+    },
+    {
+      "name": "firefly",
+      "speciesId": "nightbug",
+      "description": "dark olive firefly, small amber glowing tail and wings; four-frame wing flap",
+      "size": 32,
+      "frames": 4,
+      "path": "animations/firefly.png",
+      "atlas": "animations/atlas-32.png",
+      "atlasRow": 4,
+      "rect": [
+        0,
+        128,
+        128,
+        32
+      ],
+      "frameRects": [
+        [
+          0,
+          0,
+          32,
+          32
+        ],
+        [
+          32,
+          0,
+          32,
+          32
+        ],
+        [
+          64,
+          0,
+          32,
+          32
+        ],
+        [
+          96,
+          0,
+          32,
+          32
+        ]
+      ],
+      "uniqueFrames": 4,
+      "mode": "flap"
+    },
+    {
+      "name": "nest-queen",
+      "speciesId": "queen",
+      "description": "amber roach, small gold crown",
+      "size": 48,
+      "frames": 4,
+      "path": "animations/nest-queen.png",
+      "atlas": "animations/atlas-48.png",
+      "atlasRow": 0,
+      "rect": [
+        0,
+        0,
+        192,
+        48
+      ],
+      "frameRects": [
+        [
+          0,
+          0,
+          48,
+          48
+        ],
+        [
+          48,
+          0,
+          48,
+          48
+        ],
+        [
+          96,
+          0,
+          48,
+          48
+        ],
+        [
+          144,
+          0,
+          48,
+          48
+        ]
+      ],
+      "uniqueFrames": 4,
+      "mode": "walk"
+    },
+    {
+      "name": "brood-mother",
+      "speciesId": "nest",
+      "description": "rust roach with subtle stripes and one pale egg case at LEFT tail",
+      "size": 48,
+      "frames": 4,
+      "path": "animations/brood-mother.png",
+      "atlas": "animations/atlas-48.png",
+      "atlasRow": 1,
+      "rect": [
+        0,
+        48,
+        192,
+        48
+      ],
+      "frameRects": [
+        [
+          0,
+          0,
+          48,
+          48
+        ],
+        [
+          48,
+          0,
+          48,
+          48
+        ],
+        [
+          96,
+          0,
+          48,
+          48
+        ],
+        [
+          144,
+          0,
+          48,
+          48
+        ]
+      ],
+      "uniqueFrames": 4,
+      "mode": "walk"
+    },
+    {
+      "name": "colony-matriarch",
+      "speciesId": "greaterqueen",
+      "description": "near-black oxblood roach, silver bands across back, small crown",
+      "size": 48,
+      "frames": 4,
+      "path": "animations/colony-matriarch.png",
+      "atlas": "animations/atlas-48.png",
+      "atlasRow": 2,
+      "rect": [
+        0,
+        96,
+        192,
+        48
+      ],
+      "frameRects": [
+        [
+          0,
+          0,
+          48,
+          48
+        ],
+        [
+          48,
+          0,
+          48,
+          48
+        ],
+        [
+          96,
+          0,
+          48,
+          48
+        ],
+        [
+          144,
+          0,
+          48,
+          48
+        ]
+      ],
+      "uniqueFrames": 4,
+      "mode": "walk"
+    },
+    {
+      "name": "grand-brooder",
+      "speciesId": "hive",
+      "description": "heavy mossy olive roach, faint ridges, pale egg case at LEFT tail",
+      "size": 48,
+      "frames": 4,
+      "path": "animations/grand-brooder.png",
+      "atlas": "animations/atlas-48.png",
+      "atlasRow": 3,
+      "rect": [
+        0,
+        144,
+        192,
+        48
+      ],
+      "frameRects": [
+        [
+          0,
+          0,
+          48,
+          48
+        ],
+        [
+          48,
+          0,
+          48,
+          48
+        ],
+        [
+          96,
+          0,
+          48,
+          48
+        ],
+        [
+          144,
+          0,
+          48,
+          48
+        ]
+      ],
+      "uniqueFrames": 4,
+      "mode": "walk"
+    },
+    {
+      "name": "grand-matriarch",
+      "speciesId": "hivequeen",
+      "description": "large warm orange-brown roach, small crown and ornate shield",
+      "size": 48,
+      "frames": 4,
+      "path": "animations/grand-matriarch.png",
+      "atlas": "animations/atlas-48.png",
+      "atlasRow": 4,
+      "rect": [
+        0,
+        192,
+        192,
+        48
+      ],
+      "frameRects": [
+        [
+          0,
+          0,
+          48,
+          48
+        ],
+        [
+          48,
+          0,
+          48,
+          48
+        ],
+        [
+          96,
+          0,
+          48,
+          48
+        ],
+        [
+          144,
+          0,
+          48,
+          48
+        ]
+      ],
+      "uniqueFrames": 4,
+      "mode": "walk"
+    },
+    {
+      "name": "house-spider",
+      "speciesId": "spider",
+      "description": "brown long-legged house spider, EIGHT legs",
+      "size": 48,
+      "frames": 4,
+      "path": "animations/house-spider.png",
+      "atlas": "animations/atlas-48.png",
+      "atlasRow": 5,
+      "rect": [
+        0,
+        240,
+        192,
+        48
+      ],
+      "frameRects": [
+        [
+          0,
+          0,
+          48,
+          48
+        ],
+        [
+          48,
+          0,
+          48,
+          48
+        ],
+        [
+          96,
+          0,
+          48,
+          48
+        ],
+        [
+          144,
+          0,
+          48,
+          48
+        ]
+      ],
+      "uniqueFrames": 4,
+      "mode": "walk"
+    },
+    {
+      "name": "wolf-spider",
+      "speciesId": "giantspider",
+      "description": "stocky charcoal wolf spider, EIGHT thick legs, no hair texture",
+      "size": 48,
+      "frames": 4,
+      "path": "animations/wolf-spider.png",
+      "atlas": "animations/atlas-48.png",
+      "atlasRow": 6,
+      "rect": [
+        0,
+        288,
+        192,
+        48
+      ],
+      "frameRects": [
+        [
+          0,
+          0,
+          48,
+          48
+        ],
+        [
+          48,
+          0,
+          48,
+          48
+        ],
+        [
+          96,
+          0,
+          48,
+          48
+        ],
+        [
+          144,
+          0,
+          48,
+          48
+        ]
+      ],
+      "uniqueFrames": 4,
+      "mode": "walk"
+    },
+    {
+      "name": "mosquito",
+      "speciesId": "mosquito",
+      "description": "grey narrow mosquito, long legs, long right-pointing proboscis, four-frame wing flap",
+      "size": 48,
+      "frames": 4,
+      "path": "animations/mosquito.png",
+      "atlas": "animations/atlas-48.png",
+      "atlasRow": 7,
+      "rect": [
+        0,
+        336,
+        192,
+        48
+      ],
+      "frameRects": [
+        [
+          0,
+          0,
+          48,
+          48
+        ],
+        [
+          48,
+          0,
+          48,
+          48
+        ],
+        [
+          96,
+          0,
+          48,
+          48
+        ],
+        [
+          144,
+          0,
+          48,
+          48
+        ]
+      ],
+      "uniqueFrames": 4,
+      "mode": "flap"
+    },
+    {
+      "name": "cricket",
+      "speciesId": "locust",
+      "description": "olive-brown long cricket with enlarged folded hind legs",
+      "size": 48,
+      "frames": 4,
+      "path": "animations/cricket.png",
+      "atlas": "animations/atlas-48.png",
+      "atlasRow": 8,
+      "rect": [
+        0,
+        384,
+        192,
+        48
+      ],
+      "frameRects": [
+        [
+          0,
+          0,
+          48,
+          48
+        ],
+        [
+          48,
+          0,
+          48,
+          48
+        ],
+        [
+          96,
+          0,
+          48,
+          48
+        ],
+        [
+          144,
+          0,
+          48,
+          48
+        ]
+      ],
+      "uniqueFrames": 4,
+      "mode": "walk"
+    },
+    {
+      "name": "hissing-roach",
+      "speciesId": "roach",
+      "description": "big broad dark brown wingless segmented roach, no royal ornaments",
+      "size": 48,
+      "frames": 4,
+      "path": "animations/hissing-roach.png",
+      "atlas": "animations/atlas-48.png",
+      "atlasRow": 9,
+      "rect": [
+        0,
+        432,
+        192,
+        48
+      ],
+      "frameRects": [
+        [
+          0,
+          0,
+          48,
+          48
+        ],
+        [
+          48,
+          0,
+          48,
+          48
+        ],
+        [
+          96,
+          0,
+          48,
+          48
+        ],
+        [
+          144,
+          0,
+          48,
+          48
+        ]
+      ],
+      "uniqueFrames": 4,
+      "mode": "walk"
+    },
+    {
+      "name": "wasp",
+      "speciesId": "wasp",
+      "description": "amber yellowjacket with dark bands and narrow waist; four-frame wing flap",
+      "size": 48,
+      "frames": 4,
+      "path": "animations/wasp.png",
+      "atlas": "animations/atlas-48.png",
+      "atlasRow": 10,
+      "rect": [
+        0,
+        480,
+        192,
+        48
+      ],
+      "frameRects": [
+        [
+          0,
+          0,
+          48,
+          48
+        ],
+        [
+          48,
+          0,
+          48,
+          48
+        ],
+        [
+          96,
+          0,
+          48,
+          48
+        ],
+        [
+          144,
+          0,
+          48,
+          48
+        ]
+      ],
+      "uniqueFrames": 4,
+      "mode": "flap"
+    },
+    {
+      "name": "stag-beetle",
+      "speciesId": "devourer",
+      "description": "oxblood stag beetle, very large curved mandibles extending RIGHT",
+      "size": 48,
+      "frames": 4,
+      "path": "animations/stag-beetle.png",
+      "atlas": "animations/atlas-48.png",
+      "atlasRow": 11,
+      "rect": [
+        0,
+        528,
+        192,
+        48
+      ],
+      "frameRects": [
+        [
+          0,
+          0,
+          48,
+          48
+        ],
+        [
+          48,
+          0,
+          48,
+          48
+        ],
+        [
+          96,
+          0,
+          48,
+          48
+        ],
+        [
+          144,
+          0,
+          48,
+          48
+        ]
+      ],
+      "uniqueFrames": 4,
+      "mode": "walk"
+    },
+    {
+      "name": "moth",
+      "speciesId": "moth",
+      "description": "taupe moth with broad muted ivory-pattern wings; four-frame wing flap",
+      "size": 48,
+      "frames": 4,
+      "path": "animations/moth.png",
+      "atlas": "animations/atlas-48.png",
+      "atlasRow": 12,
+      "rect": [
+        0,
+        576,
+        192,
+        48
+      ],
+      "frameRects": [
+        [
+          0,
+          0,
+          48,
+          48
+        ],
+        [
+          48,
+          0,
+          48,
+          48
+        ],
+        [
+          96,
+          0,
+          48,
+          48
+        ],
+        [
+          144,
+          0,
+          48,
+          48
+        ]
+      ],
+      "uniqueFrames": 4,
+      "mode": "flap"
+    },
+    {
+      "name": "bat",
+      "speciesId": "bat",
+      "description": "small dusky brown bat, pointed ears and membrane wings; four-frame wing flap",
+      "size": 48,
+      "frames": 4,
+      "path": "animations/bat.png",
+      "atlas": "animations/atlas-48.png",
+      "atlasRow": 13,
+      "rect": [
+        0,
+        624,
+        192,
+        48
+      ],
+      "frameRects": [
+        [
+          0,
+          0,
+          48,
+          48
+        ],
+        [
+          48,
+          0,
+          48,
+          48
+        ],
+        [
+          96,
+          0,
+          48,
+          48
+        ],
+        [
+          144,
+          0,
+          48,
+          48
+        ]
+      ],
+      "uniqueFrames": 4,
+      "mode": "flap"
+    },
+    {
+      "name": "golden-roach",
+      "speciesId": "golden",
+      "description": "bright metallic gold roach, few tiny hard pixel sparkles, distinct from amber queen",
+      "size": 48,
+      "frames": 4,
+      "path": "animations/golden-roach.png",
+      "atlas": "animations/atlas-48.png",
+      "atlasRow": 14,
+      "rect": [
+        0,
+        672,
+        192,
+        48
+      ],
+      "frameRects": [
+        [
+          0,
+          0,
+          48,
+          48
+        ],
+        [
+          48,
+          0,
+          48,
+          48
+        ],
+        [
+          96,
+          0,
+          48,
+          48
+        ],
+        [
+          144,
+          0,
+          48,
+          48
+        ]
+      ],
+      "uniqueFrames": 4,
+      "mode": "walk"
+    },
+    {
+      "name": "roach-empress",
+      "speciesId": "empress",
+      "description": "regal slate blue-black roach, thin aged gold trim and mantle",
+      "size": 64,
+      "frames": 4,
+      "path": "animations/roach-empress.png",
+      "atlas": "animations/atlas-64.png",
+      "atlasRow": 0,
+      "rect": [
+        0,
+        0,
+        256,
+        64
+      ],
+      "frameRects": [
+        [
+          0,
+          0,
+          64,
+          64
+        ],
+        [
+          64,
+          0,
+          64,
+          64
+        ],
+        [
+          128,
+          0,
+          64,
+          64
+        ],
+        [
+          192,
+          0,
+          64,
+          64
+        ]
+      ],
+      "uniqueFrames": 4,
+      "mode": "walk"
+    },
+    {
+      "name": "neuroprophet",
+      "speciesId": "prophet",
+      "description": "dark forest green roach, glossy spots and tiny pale third eye",
+      "size": 64,
+      "frames": 4,
+      "path": "animations/neuroprophet.png",
+      "atlas": "animations/atlas-64.png",
+      "atlasRow": 1,
+      "rect": [
+        0,
+        64,
+        256,
+        64
+      ],
+      "frameRects": [
+        [
+          0,
+          0,
+          64,
+          64
+        ],
+        [
+          64,
+          0,
+          64,
+          64
+        ],
+        [
+          128,
+          0,
+          64,
+          64
+        ],
+        [
+          192,
+          0,
+          64,
+          64
+        ]
+      ],
+      "uniqueFrames": 4,
+      "mode": "walk"
+    },
+    {
+      "name": "elder-sage",
+      "speciesId": "goddess",
+      "description": "bone-white roach, long white antennae, tiny beard and subtle pixel halo",
+      "size": 64,
+      "frames": 4,
+      "path": "animations/elder-sage.png",
+      "atlas": "animations/atlas-64.png",
+      "atlasRow": 2,
+      "rect": [
+        0,
+        128,
+        256,
+        64
+      ],
+      "frameRects": [
+        [
+          0,
+          0,
+          64,
+          64
+        ],
+        [
+          64,
+          0,
+          64,
+          64
+        ],
+        [
+          128,
+          0,
+          64,
+          64
+        ],
+        [
+          192,
+          0,
+          64,
+          64
+        ]
+      ],
+      "uniqueFrames": 4,
+      "mode": "walk"
+    },
+    {
+      "name": "pantheon",
+      "speciesId": "pantheon",
+      "description": "marble-pale sage-green roach, small laurel and pixel halo",
+      "size": 64,
+      "frames": 4,
+      "path": "animations/pantheon.png",
+      "atlas": "animations/atlas-64.png",
+      "atlasRow": 3,
+      "rect": [
+        0,
+        192,
+        256,
+        64
+      ],
+      "frameRects": [
+        [
+          0,
+          0,
+          64,
+          64
+        ],
+        [
+          64,
+          0,
+          64,
+          64
+        ],
+        [
+          128,
+          0,
+          64,
+          64
+        ],
+        [
+          192,
+          0,
+          64,
+          64
+        ]
+      ],
+      "uniqueFrames": 4,
+      "mode": "walk"
+    },
+    {
+      "name": "council-mind",
+      "speciesId": "pantheon5",
+      "description": "pale stone roach with enlarged amber-lit head and simple halo",
+      "size": 64,
+      "frames": 4,
+      "path": "animations/council-mind.png",
+      "atlas": "animations/atlas-64.png",
+      "atlasRow": 4,
+      "rect": [
+        0,
+        256,
+        256,
+        64
+      ],
+      "frameRects": [
+        [
+          0,
+          0,
+          64,
+          64
+        ],
+        [
+          64,
+          0,
+          64,
+          64
+        ],
+        [
+          128,
+          0,
+          64,
+          64
+        ],
+        [
+          192,
+          0,
+          64,
+          64
+        ]
+      ],
+      "uniqueFrames": 4,
+      "mode": "walk"
+    },
+    {
+      "name": "overmind",
+      "speciesId": "overmind",
+      "description": "shadowy regal indigo roach with restrained crisp dark violet aura",
+      "size": 64,
+      "frames": 4,
+      "path": "animations/overmind.png",
+      "atlas": "animations/atlas-64.png",
+      "atlasRow": 5,
+      "rect": [
+        0,
+        320,
+        256,
+        64
+      ],
+      "frameRects": [
+        [
+          0,
+          0,
+          64,
+          64
+        ],
+        [
+          64,
+          0,
+          64,
+          64
+        ],
+        [
+          128,
+          0,
+          64,
+          64
+        ],
+        [
+          192,
+          0,
+          64,
+          64
+        ]
+      ],
+      "uniqueFrames": 4,
+      "mode": "walk"
+    },
+    {
+      "name": "rhino-beetle",
+      "speciesId": "goon",
+      "description": "slate grey heavily armored rhinoceros beetle, prominent horn extending RIGHT",
+      "size": 64,
+      "frames": 4,
+      "path": "animations/rhino-beetle.png",
+      "atlas": "animations/atlas-64.png",
+      "atlasRow": 6,
+      "rect": [
+        0,
+        384,
+        256,
+        64
+      ],
+      "frameRects": [
+        [
+          0,
+          0,
+          64,
+          64
+        ],
+        [
+          64,
+          0,
+          64,
+          64
+        ],
+        [
+          128,
+          0,
+          64,
+          64
+        ],
+        [
+          192,
+          0,
+          64,
+          64
+        ]
+      ],
+      "uniqueFrames": 4,
+      "mode": "walk"
+    },
+    {
+      "name": "house-centipede",
+      "speciesId": "centipede",
+      "description": "long rust-brown house centipede, many long splayed legs, segmented body",
+      "size": 64,
+      "frames": 4,
+      "path": "animations/house-centipede.png",
+      "atlas": "animations/atlas-64.png",
+      "atlasRow": 7,
+      "rect": [
+        0,
+        448,
+        256,
+        64
+      ],
+      "frameRects": [
+        [
+          0,
+          0,
+          64,
+          64
+        ],
+        [
+          64,
+          0,
+          64,
+          64
+        ],
+        [
+          128,
+          0,
+          64,
+          64
+        ],
+        [
+          192,
+          0,
+          64,
+          64
+        ]
+      ],
+      "uniqueFrames": 4,
+      "mode": "walk"
+    }
+  ],
+  "nest": {
+    "canvas": [
+      300,
+      230
+    ],
+    "groundLineY": 205,
+    "entrance": [
+      269,
+      194
+    ],
+    "stages": [
+      {
+        "stage": 1,
+        "path": "nest/stage-1.png",
+        "content": [
+          200,
+          183,
+          85,
+          22
+        ],
+        "groundLineY": 205
+      },
+      {
+        "stage": 2,
+        "path": "nest/stage-2.png",
+        "content": [
+          145,
+          153,
+          140,
+          52
+        ],
+        "groundLineY": 205
+      },
+      {
+        "stage": 3,
+        "path": "nest/stage-3.png",
+        "content": [
+          75,
+          106,
+          210,
+          99
+        ],
+        "groundLineY": 205
+      },
+      {
+        "stage": 4,
+        "path": "nest/stage-4.png",
+        "content": [
+          25,
+          79,
+          260,
+          126
+        ],
+        "groundLineY": 205
+      },
+      {
+        "stage": 5,
+        "path": "nest/stage-5.png",
+        "content": [
+          5,
+          22,
+          280,
+          183
+        ],
+        "groundLineY": 205
+      },
+      {
+        "stage": 6,
+        "path": "nest/stage-6.png",
+        "content": [
+          5,
+          17,
+          280,
+          188
+        ],
+        "groundLineY": 205
+      }
+    ],
+    "overlays": [
+      {
+        "name": "eggs-small",
+        "path": "nest/overlays/eggs-small.png",
+        "compactPath": "nest/overlays-compact/eggs-small.png",
+        "canvas": [
+          300,
+          230
+        ],
+        "x": 103,
+        "y": 175,
+        "width": 14,
+        "height": 10,
+        "anchorStage": 4,
+        "exclusiveGroup": "eggs"
+      },
+      {
+        "name": "eggs-medium",
+        "path": "nest/overlays/eggs-medium.png",
+        "compactPath": "nest/overlays-compact/eggs-medium.png",
+        "canvas": [
+          300,
+          230
+        ],
+        "x": 99,
+        "y": 174,
+        "width": 22,
+        "height": 13,
+        "anchorStage": 4,
+        "exclusiveGroup": "eggs"
+      },
+      {
+        "name": "eggs-large",
+        "path": "nest/overlays/eggs-large.png",
+        "compactPath": "nest/overlays-compact/eggs-large.png",
+        "canvas": [
+          300,
+          230
+        ],
+        "x": 95,
+        "y": 173,
+        "width": 30,
+        "height": 14,
+        "anchorStage": 4,
+        "exclusiveGroup": "eggs"
+      },
+      {
+        "name": "nexus",
+        "path": "nest/overlays/nexus.png",
+        "compactPath": "nest/overlays-compact/nexus.png",
+        "canvas": [
+          300,
+          230
+        ],
+        "x": 181,
+        "y": 131,
+        "width": 22,
+        "height": 19,
+        "anchorStage": 4,
+        "exclusiveGroup": null
+      },
+      {
+        "name": "pennant",
+        "path": "nest/overlays/pennant.png",
+        "compactPath": "nest/overlays-compact/pennant.png",
+        "canvas": [
+          300,
+          230
+        ],
+        "x": 148,
+        "y": 49,
+        "width": 25,
+        "height": 32,
+        "anchorStage": 4,
+        "exclusiveGroup": null
+      },
+      {
+        "name": "crumbs-small",
+        "path": "nest/overlays/crumbs-small.png",
+        "compactPath": "nest/overlays-compact/crumbs-small.png",
+        "canvas": [
+          300,
+          230
+        ],
+        "x": 71,
+        "y": 145,
+        "width": 11,
+        "height": 8,
+        "anchorStage": 4,
+        "exclusiveGroup": "crumbs"
+      },
+      {
+        "name": "crumbs-medium",
+        "path": "nest/overlays/crumbs-medium.png",
+        "compactPath": "nest/overlays-compact/crumbs-medium.png",
+        "canvas": [
+          300,
+          230
+        ],
+        "x": 66,
+        "y": 145,
+        "width": 20,
+        "height": 9,
+        "anchorStage": 4,
+        "exclusiveGroup": "crumbs"
+      },
+      {
+        "name": "crumbs-large",
+        "path": "nest/overlays/crumbs-large.png",
+        "compactPath": "nest/overlays-compact/crumbs-large.png",
+        "canvas": [
+          300,
+          230
+        ],
+        "x": 62,
+        "y": 143,
+        "width": 28,
+        "height": 12,
+        "anchorStage": 4,
+        "exclusiveGroup": "crumbs"
+      },
+      {
+        "name": "side-tunnel-annex",
+        "path": "nest/overlays/side-tunnel-annex.png",
+        "compactPath": "nest/overlays-compact/side-tunnel-annex.png",
+        "canvas": [
+          300,
+          230
+        ],
+        "x": 3,
+        "y": 179,
+        "width": 55,
+        "height": 23,
+        "anchorStage": 4,
+        "exclusiveGroup": null
+      }
+    ]
+  },
+  "props": [
+    {
+      "name": "carried-crumb",
+      "path": "props/carried-crumb.png",
+      "size": 16,
+      "contentSize": [
+        6,
+        7
+      ],
+      "atlasCell": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "auto-buy-parcel",
+      "path": "props/auto-buy-parcel.png",
+      "size": 16,
+      "contentSize": [
+        11,
+        12
+      ],
+      "atlasCell": [
+        1,
+        0
+      ]
+    },
+    {
+      "name": "egg",
+      "path": "props/egg.png",
+      "size": 16,
+      "contentSize": [
+        7,
+        10
+      ],
+      "atlasCell": [
+        2,
+        0
+      ]
+    },
+    {
+      "name": "crumb-1",
+      "path": "props/crumb-1.png",
+      "size": 16,
+      "contentSize": [
+        6,
+        6
+      ],
+      "atlasCell": [
+        3,
+        0
+      ]
+    },
+    {
+      "name": "crumb-2",
+      "path": "props/crumb-2.png",
+      "size": 16,
+      "contentSize": [
+        6,
+        6
+      ],
+      "atlasCell": [
+        4,
+        0
+      ]
+    },
+    {
+      "name": "crumb-3",
+      "path": "props/crumb-3.png",
+      "size": 16,
+      "contentSize": [
+        6,
+        6
+      ],
+      "atlasCell": [
+        5,
+        0
+      ]
+    },
+    {
+      "name": "crumb-4",
+      "path": "props/crumb-4.png",
+      "size": 16,
+      "contentSize": [
+        7,
+        6
+      ],
+      "atlasCell": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "crumb-pile-small",
+      "path": "props/crumb-pile-small.png",
+      "size": 24,
+      "contentSize": [
+        11,
+        10
+      ],
+      "atlasCell": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "crumb-pile-medium",
+      "path": "props/crumb-pile-medium.png",
+      "size": 24,
+      "contentSize": [
+        14,
+        13
+      ],
+      "atlasCell": [
+        2,
+        1
+      ]
+    },
+    {
+      "name": "crumb-pile-large",
+      "path": "props/crumb-pile-large.png",
+      "size": 24,
+      "contentSize": [
+        19,
+        17
+      ],
+      "atlasCell": [
+        3,
+        1
+      ]
+    },
+    {
+      "name": "burrow-hole-1",
+      "path": "props/burrow-hole-1.png",
+      "size": 24,
+      "contentSize": [
+        18,
+        14
+      ],
+      "atlasCell": [
+        4,
+        1
+      ]
+    },
+    {
+      "name": "burrow-hole-2",
+      "path": "props/burrow-hole-2.png",
+      "size": 24,
+      "contentSize": [
+        17,
+        17
+      ],
+      "atlasCell": [
+        5,
+        1
+      ]
+    },
+    {
+      "name": "grass-tuft-1",
+      "path": "props/grass-tuft-1.png",
+      "size": 24,
+      "contentSize": [
+        13,
+        12
+      ],
+      "atlasCell": [
+        0,
+        2
+      ]
+    },
+    {
+      "name": "grass-tuft-2",
+      "path": "props/grass-tuft-2.png",
+      "size": 24,
+      "contentSize": [
+        17,
+        16
+      ],
+      "atlasCell": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "grass-tuft-3",
+      "path": "props/grass-tuft-3.png",
+      "size": 24,
+      "contentSize": [
+        16,
+        15
+      ],
+      "atlasCell": [
+        2,
+        2
+      ]
+    },
+    {
+      "name": "soil-clod-1",
+      "path": "props/soil-clod-1.png",
+      "size": 16,
+      "contentSize": [
+        8,
+        8
+      ],
+      "atlasCell": [
+        3,
+        2
+      ]
+    },
+    {
+      "name": "soil-clod-2",
+      "path": "props/soil-clod-2.png",
+      "size": 16,
+      "contentSize": [
+        8,
+        8
+      ],
+      "atlasCell": [
+        4,
+        2
+      ]
+    },
+    {
+      "name": "territory-claim-post",
+      "path": "props/territory-claim-post.png",
+      "size": 24,
+      "contentSize": [
+        14,
+        15
+      ],
+      "atlasCell": [
+        5,
+        2
+      ]
+    }
+  ],
+  "animationAtlasDecodedBytes": 1159168,
+  "tintAliases": {
+    "pantheon2": {
+      "base": "pantheon",
+      "body": "#b49a50"
+    },
+    "pantheon3": {
+      "base": "pantheon",
+      "body": "#6e8aa6"
+    },
+    "pantheon4": {
+      "base": "pantheon",
+      "body": "#a8705a"
+    },
+    "pantheon5": {
+      "base": "council-mind",
+      "body": "#e2dccc"
+    },
+    "overmind2": {
+      "base": "overmind",
+      "body": "#4f9a96"
+    },
+    "overmind3": {
+      "base": "overmind",
+      "body": "#7a64a0"
+    },
+    "overmind4": {
+      "base": "overmind",
+      "body": "#9a4e5e"
+    },
+    "overmind5": {
+      "base": "overmind",
+      "body": "#b89a58"
+    },
+    "overmind6": {
+      "base": "overmind",
+      "body": "#cfd0d8"
+    }
+  }
+}

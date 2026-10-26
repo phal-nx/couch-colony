@@ -1,0 +1,5 @@
+#!/bin/sh
+# Starts the Roach Colony phone controller bridge at boot. Removed by rollback.
+DIR=/var/lib/webosbrew/roach-colony/controller
+[ -x "$DIR/run.sh" ] && "$DIR/run.sh" start
+exit 0

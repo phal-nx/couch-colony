@@ -1,0 +1,484 @@
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: transparent; pointer-events: none; }
+body { color: #eee8d8; font-family: Arial, Helvetica, sans-serif; }
+button, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; border: 1.6px solid rgba(211,193,151,.23); background: rgba(49,46,32,.5); border-radius: 9.6px; padding: 8px 14.4px; }
+button:focus { outline: 3px solid #f6dc8e; outline-offset: 2px; box-shadow: 0 0 0 7px rgba(0,0,0,.5); background-color: rgba(128,108,52,.66); color: #fff6dc; }
+button:disabled, button[aria-disabled="true"] { cursor: default; color: #a5ae9a; border-color: rgba(161,179,141,.18); background-color: rgba(35,38,29,.42); }
+button.active { color: #f2e5bc; border-color: rgba(211,189,130,.7); background: rgba(115,102,57,.42); }
+#colony { position: absolute; bottom: 22px; right: 22px; width: 560px; max-width: calc(100% - 44px); max-height: calc(100% - 100px); background: transparent; font-size: 24px; pointer-events: auto; }
+#colony.compact { width: 480px; }
+.compact .expanded-only { display: none !important; }
+#menu { max-height: 456px; overflow-y: auto; background: rgba(23,27,20,.7); border: 1.6px solid rgba(211,193,151,.24); border-radius: 19.2px; padding: 17.6px 19.2px; margin-bottom: 11.2px; box-shadow: 0 6.4px 28.8px rgba(0,0,0,.16); }
+header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12.8px; }
+h1 { font-size: 27.2px; font-weight: 500; margin: 0; }
+h1::before { content: ''; display: inline-block; width: 11.2px; height: 17.6px; margin-right: 12.8px; border-radius: 50%; background: #bb8951; border: 1.6px solid #e0b67c; transform: rotate(25deg); vertical-align: -1.6px; }
+#close { background: transparent; border: 0; font-size: 38.4px; padding: 0 6.4px; line-height: 32px; }
+#menu-views { display: flex; justify-content: space-between; margin: 0 -3.2px 11.2px; }
+#menu-views button { font-size: 22.4px; margin: 0 3.2px; padding: 8px 11.2px; }
+#tabs { display: flex; flex-wrap: wrap; margin: 0 -3.2px 9.6px; }
+#tabs button { font-size: 19.2px; padding: 6.4px 11.2px; margin: 3.2px; }
+#list-tools { display: flex; flex-wrap: wrap; align-items: center; margin-bottom: 4px; }
+#buy-options { display: flex; justify-content: flex-end; margin-left: auto; }
+#quantities { display: flex; }
+#quantities button { font-size: 19.2px; margin-left: 6.4px; padding: 4.8px 14.4px; }
+.item { border-top: 1.6px solid rgba(201,185,141,.16); padding: 12.8px 0; }
+.item-head { display: flex; align-items: center; }
+.item h2 { font-size: 28.8px; font-weight: 500; margin: 0; }
+.item .source { font-size: 16px; color: #b7b59e; margin-left: 8px; }
+.item .owned { font-size: 19.2px; color: #cbbb94; margin-left: 9.6px; }
+.item .cost { font-size: 20.8px; padding-right: 9.6px; color: #e1d5b5; }
+.item .cost .cost-limiting { color: #f6a456; font-weight: 600; text-shadow: 0 1px 4px rgba(0,0,0,.95); }
+.item .cost .cost-limiting.cost-short { color: #f6a456; border-bottom: 1.5px solid rgba(246,164,86,.75); }
+.item .cost .cost-limiting.cost-batch-cap { color: #d3a256; border-bottom: 1.5px dotted rgba(211,162,86,.65); }
+.item button { font-size: 20.8px; padding: 6.4px 12.8px; white-space: nowrap; }
+.item .details { background: transparent; border: 0; color: #c3bea4; font-size: 17.6px; padding: 6.4px 0 0; }
+.item p { font-size: 22.4px; line-height: 1.4; color: #d8d3be; margin: 11.2px 0 0; }
+.item.locked { opacity: .76; }
+.empty { font-size: 22.4px; color: #c0ceaf; line-height: 1.4; }
+#pagination { display: flex; align-items: center; margin: 0 10px 0 auto; }
+#pagination button { font-size: 26px; line-height: 1; padding: 2px 13px; }
+#page-label { font-size: 17px; margin: 0 9px; color: #c7d6b6; font-variant-numeric: tabular-nums; }
+/* Feedback shows in the floating hint; this copy stays for status semantics only. */
+#message { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); margin: 0; }
+/* One row that never wraps; anything wider than the panel extends left over the video. */
+#resources { display: flex; flex-wrap: nowrap; justify-content: flex-end; margin: 0; white-space: nowrap; text-shadow: 0 1.6px 4.8px #000, 0 0 9.6px #000; }
+.resource { flex: none; margin: 4.8px 0 0 14px; text-align: right; }
+.resource strong { font-size: 24px; font-weight: 500; }
+.resource .label { font-size: 14px; margin-left: 6.4px; text-transform: uppercase; color: #d2cbb6; }
+.resource .rate { font-size: 15.5px; display: block; color: #ddd6bc; margin-top: 3.2px; }
+#world { width: 100%; height: 76.8px; display: block; filter: drop-shadow(0 1.6px 3.2px #000); }
+#plus { position: absolute; bottom: 0; right: 0; border: 0; border-radius: 50%; width: 70.4px; height: 70.4px; line-height: 70.4px; font-size: 36.8px; padding: 0; background: transparent; z-index: 1; }
+#plus::before { content: ''; position: absolute; top: 11.2px; left: 11.2px; width: 46.4px; height: 46.4px; border: 1.6px solid rgba(189,207,169,.3); border-radius: 50%; background: rgba(35,36,25,.5); z-index: -1; }
+#plus::after { content: ''; position: absolute; top: 8px; left: 8px; width: 52.8px; height: 52.8px; border: 2px solid rgba(235,196,118,.85); border-radius: 50%; opacity: 0; pointer-events: none; z-index: -1; }
+@keyframes wake-ring { 0% { opacity: .9; transform: scale(.85); } 100% { opacity: 0; transform: scale(1.45); } }
+@keyframes wake-fade { 0% { opacity: .06; } 100% { opacity: 1; } }
+#colony.waking #plus::after { animation: wake-ring 700ms ease-out; }
+#colony.waking #resources { animation: wake-fade 380ms ease-out backwards; }
+#colony.waking #census { animation: wake-fade 420ms 110ms ease-out backwards; }
+#colony.waking #quick { animation: wake-fade 450ms 220ms ease-out backwards; }
+#colony.waking #next-eta { animation: wake-fade 450ms 320ms ease-out backwards; }
+footer { display: flex; justify-content: flex-end; font-size: 16px; color: #dfd2a8; text-shadow: 0 1.6px 4.8px #000; margin-top: -6.4px; }
+#save-warning { color: #ffdab0; font-size: 17.6px; text-shadow: 0 1.6px 4.8px #000; text-align: right; margin: 8px 0 0; }
+#evolution p, #colony-settings p { font-size: 22.4px; line-height: 1.4; margin: 14.4px 0; }
+#evolution button, .more-actions button { font-size: 22.4px; margin: 4.8px 6.4px 4.8px 0; }
+/* More gained Watch and Terrarium. Keep the same couch type, with less padding, so the page still fits the menu. */
+#colony-settings .more-actions button { margin: 2px 6px 2px 0; padding: 3px 12px; }
+#colony-settings p { margin: 6px 0; }
+#colony-settings #save-status { margin: 2px 0 0; }
+.muted, #save-status { color: #c3bda4; }
+.achievement { padding: 12.8px 0; border-top: 1.6px solid rgba(201,185,141,.16); }
+.achievement strong { font-size: 24px; font-weight: 500; }
+.achievement span { font-size: 16px; color: #d7c394; float: right; }
+.achievement p { font-size: 20.8px; color: #c3bda4; line-height: 1.4; margin: 8px 0 0; }
+#dialog { position: absolute; left: 0; right: 0; bottom: 124.8px; max-height: calc(100vh - 272px); overflow-y: auto; background: rgba(26,30,22,.96); border: 1.6px solid #b3a579; border-radius: 16px; padding: 27.2px; box-shadow: 0 6.4px 32px rgba(0,0,0,.3); z-index: 5; }
+#dialog h2 { font-size: 33.6px; font-weight: 500; margin: 0 0 16px; }
+#dialog p { font-size: 24px; line-height: 1.4; color: #d8d3be; margin: 0 0 19.2px; white-space: pre-line; }
+#save-text { width: 100%; height: 160px; background: #171d14; border: 1.6px solid #8c8967; padding: 12.8px; font-family: monospace; font-size: 17.6px; resize: vertical; }
+.dialog-buttons { display: flex; justify-content: flex-end; margin-top: 16px; }
+.dialog-buttons button { font-size: 24px; margin-left: 11.2px; }
+#preview-scene { display: none; }
+body.preview #preview-scene { display: block; position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden; background: linear-gradient(#263d51 0%, #778987 55%, #b9b19a 72%, #364c45 73%, #142c29 100%); }
+.moon { position: absolute; top: 16%; left: 24%; width: 90px; height: 90px; border-radius: 50%; background: #e3dbc0; box-shadow: 0 0 70px rgba(209,205,179,.33); }
+.mountain { position: absolute; width: 110%; height: 60%; bottom: 18%; left: -5%; background: #435d5b; clip-path: polygon(0 100%, 0 72%, 9% 62%, 18% 78%, 32% 20%, 40% 40%, 47% 0, 61% 65%, 70% 48%, 83% 77%, 91% 52%, 100% 80%, 100% 100%); }
+.mountain.near { background: #263f3e; bottom: -8%; transform: scaleX(-1); }
+.preview-label { position: absolute; left: 55px; bottom: 48px; font-size: 13px; letter-spacing: 3px; color: #e4e5d3; }.preview-label span { display: block; font-size: 20px; letter-spacing: 0; margin-top: 9px; }
+@media (max-height: 600px) { #menu { max-height: 250px; } }
+@media (max-width: 700px) { #colony { max-height: calc(100% - 24px); } .preview-label { left: 20px; bottom: 20px; font-size: 10px; } .preview-label span { font-size: 14px; } }
+
+#remote-legend { display: flex; flex-wrap: wrap; font-size: 17.5px !important; line-height: 1.45 !important; margin-top: 6px !important; padding-top: 8px; border-top: 1.6px solid rgba(201,185,141,.16); }
+/* Tight enough that a late colony's four rows of More buttons, Reset progress among them, fit without scrolling. */
+#colony-settings .more-actions button { font-size: 20.5px; margin: 2px 5px 2px 0; padding: 3px 10px; }
+#colony-settings #save-status { margin: 4px 0 0; font-size: 19px; line-height: 1.3; }
+.remote-key { display: inline-block; margin-right: 10px; color: #d7d0ba; }
+.remote-key.blue { margin-right: 0; }
+.remote-key::before { content: ''; display: inline-block; width: 32px; height: 16px; margin-right: 5px; vertical-align: -2px; border-radius: 0; background: url(ui-art/capsule_yellow.png) 0 0 / 100% 100% no-repeat; image-rendering: -webkit-optimize-contrast; image-rendering: pixelated; }
+.remote-key.red::before { background-image: url(ui-art/capsule_red.png); }
+.remote-key.green::before { background-image: url(ui-art/capsule_green.png); }
+.remote-key.yellow::before { background-image: url(ui-art/capsule_yellow.png); }
+.remote-key.blue::before { background-image: url(ui-art/capsule_blue.png); }
+.remote-back { display: block; width: 100%; color: #aaa891; margin-top: 2px; }
+/* Four readable rows share the existing enlarged menu footprint. */
+#menu { max-height: 500px; padding: 14px 18px; }
+header { margin-bottom: 6px; }
+h1 { font-size: 26px; letter-spacing: .48px; }
+#menu-views { margin-bottom: 7px; }
+#menu-views button { font-size: 20px; padding: 6px 10px; }
+#tabs { margin: 0 -3.2px; }
+/* Late colonies have five tabs; they share one line with the quantity buttons and scroll sideways rather than wrapping the menu past four rows. */
+#list-tools { flex-wrap: nowrap; }
+#tabs { flex: 1 1 auto; min-width: 0; flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; }
+#tabs::-webkit-scrollbar { display: none; }
+#tabs button { flex: none; }
+#buy-options { flex: none; margin-left: 6px; }
+#tabs button { font-size: 16px; padding: 4px 7px; margin: 3px 2px; }
+#quantities button { font-size: 17px; padding: 3px 12px; }
+.item { padding: 4px 0; }
+.item h2 { font-size: 22px; line-height: 1.15; flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.item .owned { font-size: 16px; font-variant-numeric: tabular-nums; white-space: nowrap; margin-left: auto; padding-left: 8px; }
+.item .owned-box { display: flex; flex-direction: column; align-items: flex-end; margin-left: auto; padding-left: 8px; line-height: 1.05; }
+.item .owned-box .owned { margin-left: 0; padding-left: 0; }
+.item .unit-rate { font-size: 14.5px; color: #9db880; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.item .details { flex: none; font-size: 22px; line-height: 1.1; padding: 0 6px; min-width: 30px; margin-left: 4px; }
+.item .buy { flex: none; min-width: 104px; font-size: 18px; padding: 4px 10px; margin-left: 8px; }
+.item .cost { font-size: 18px; line-height: 1.25; margin-top: 1px; padding: 0; }
+/* A long multi-resource price ends in an ellipsis instead of pushing the four rows past the menu's height:
+   two lines on a unit row, one on an upgrade row, which already spends a line on its brief. Details (8)
+   shows the whole price. */
+.item .cost { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; word-wrap: break-word; }
+.item[data-kind="upgrade"] .cost { -webkit-line-clamp: 1; }
+.item.open .cost { display: block; }
+.item p { font-size: 19px; }
+.item .brief { font-size: 16px; line-height: 1.25; color: #c9c4ab; margin: 2px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.resource strong, .resource .rate, .cost { font-variant-numeric: tabular-nums; }
+.resource strong { display: inline-block; min-width: 6.5ch; }
+.resource .label { letter-spacing: .5px; }
+#milestone { position: absolute; bottom: calc(100% + 10px); right: 0; width: 330px; padding: 10px 14px; background: rgba(25,31,20,.78); border-left: 2px solid #c7b078; border-radius: 5px; pointer-events: none; text-shadow: 0 1px 3px #000; }
+#milestone strong { display: block; color: #e3d2aa; font-size: 16px; font-weight: 500; }
+#milestone span { display: block; font-size: 18px; margin-top: 3px; }
+@media (max-height: 650px) { #menu { max-height: 300px; } }
+
+#stage { color: #c4c0a6; margin-right: auto; font-size: 16px; font-variant-numeric: tabular-nums; }
+#countdown:empty { display: none; }
+#world { position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; pointer-events: none; filter: none; z-index: 0; }
+#colony { z-index: 1; }
+#census { display: flex; justify-content: flex-end; align-items: center; min-height: 58px; margin-right: 58px; pointer-events: none; text-shadow: 0 1.6px 4.8px #000, 0 0 9.6px #000; }
+/* Entries share the 422 px left of the + button: the 64 px cell's empty rim overhangs its neighbours and a long
+   label wraps between words, but no entry shrinks below its longest word. When three still don't fit, colony.js
+   hides the third rather than clip a label. */
+.census-entry { display: flex; flex: 0 1 auto; align-items: center; margin-left: 6px; }
+.census-entry[hidden] { display: none; }
+.census-entry .item-icon { margin-right: 4px; }
+.census-entry .sprite-icon { margin: -3px -8px -3px -8px; }
+/* A faint light rim keeps near-black castes readable over dark video. */
+.census-entry .sprite-icon { filter: drop-shadow(0 0 1px rgba(238,231,215,.6)) drop-shadow(0 1px 2px #000); }
+.census-text strong { display: block; white-space: nowrap; font-size: 24px; font-weight: 500; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.census-text .label { display: block; max-width: 120px; font-size: 15px; line-height: 1.1; color: #d2cbb6; overflow: hidden; text-overflow: ellipsis; }
+.census-text .rate { display: block; white-space: nowrap; font-size: 14.5px; line-height: 1.1; color: #9db880; font-variant-numeric: tabular-nums; }
+.sprite-icon { flex: none; margin-right: 8px; }
+.sprite-icon.pixel-art { image-rendering: -webkit-optimize-contrast; image-rendering: pixelated; }
+.item-icon { display: inline-block; flex: 0 0 13px; height: 20px; margin-right: 8px; border-radius: 50%; background: #ad814d; border: 1px solid #d7b783; box-shadow: inset -4px 0 rgba(0,0,0,.2); }
+.item-icon.role-queen, .item-icon.role-greaterqueen, .item-icon.role-hivequeen { background: #cfad68; height: 23px; }
+.item-icon.role-nest, .item-icon.role-hive { border-radius: 3px; background: #88754d; transform: rotate(30deg); height: 17px; }
+.item-icon.upgrade-icon { border-radius: 2px; height: 13px; transform: rotate(45deg); background: transparent; border: 2px solid #b7c48b; box-shadow: none; }
+.row-number { flex: none; font-size: 15px; color: #b3b096; margin-right: 7px; }
+.item .auto-toggle { flex: none; font-size: 15px; padding: 4px 7px; margin-left: 8px; }
+#unit-intro, #key-help { position: absolute; bottom: calc(100% + 10px); right: 0; width: 430px; max-height: 300px; overflow-y: auto; background: rgba(26,32,22,.88); border: 1px solid #96855e; border-radius: 8px; padding: 14px 18px; }
+#unit-intro strong, #key-help strong { color: #ead3a6; font-size: 21px; font-weight: 500; }
+#unit-intro p, #key-help p { font-size: 18px; line-height: 1.4; margin: 7px 0 0; }
+#intro-close { float: right; font-size: 20px; padding: 0 5px; background: transparent; border: 0; }
+#local-hint { position: absolute; right: 0; bottom: 100%; max-width: 430px; padding: 7px 12px; color: #ded6bc; background: rgba(22,28,18,.82); font-size: 17px; border-radius: 5px; text-shadow: 0 1.6px 4.8px #000, 0 0 8px rgba(0,0,0,.85); }
+#next-eta { margin: 2px 76px 0 0; font-size: 16.5px; line-height: 1.3; color: #dfd2a8; text-align: right; text-shadow: 0 1.6px 4.8px #000; }
+#colony:not(.compact) #next-eta { display: none; }
+#milestone em { display: block; font-size: 15px; color: #cbc3a5; margin-top: 4px; }
+/* Burn-in care: idle static text fades slowly and returns at once on input. */
+#colony.dim #resources, #colony.dim #census, #colony.dim #plus, #colony.dim footer, #colony.dim #next-eta { opacity: .35; transition: opacity 3s; }
+/* Watch TV: only the hot bar and a catch cue stay up. The habitat tucks to the bezel. */
+#colony.watch #resources, #colony.watch #census, #colony.watch #plus, #colony.watch #stage, #colony.watch #next-eta, #colony.watch #menu { display: none !important; }
+#colony.watch footer { padding-right: 0; }
+/* Critters only: the roaches and nest stay on screen; every line of text is removed. */
+#colony.critters #resources, #colony.critters #census, #colony.critters #plus, #colony.critters footer, #colony.critters #next-eta, #colony.critters #local-hint, #colony.critters #milestone, #colony.critters #unit-intro, #colony.critters #key-help, #colony.critters #hint-card { display: none !important; }
+/* Standalone terrarium: a soil floor instead of the video showing through. */
+body.standalone { background: radial-gradient(ellipse at 50% 100%, #3a2c1c 0%, #24180f 42%, #120e0a 100%); }
+body.standalone #preview-scene { display: none; }
+/* Phone controller pairing, shown inside the dialog. */
+#controller-panel { font-size: 21px; }
+#controller-panel .pair-code { display: block; margin: 0 0 12px; }
+#controller-panel .pair-url { font-family: monospace; font-size: 21px; color: #f2e5bc; word-break: break-all; }
+#controller-panel h3 { font-size: 21px; font-weight: 500; margin: 14px 0 6px; color: #e3d2aa; }
+.paired-phone { display: flex; align-items: center; justify-content: space-between; padding: 6px 0; border-top: 1.6px solid rgba(201,185,141,.16); }
+.paired-phone span { font-size: 19px; color: #d8d3be; margin-right: 12px; }
+.paired-phone button { font-size: 19px; padding: 4.8px 12.8px; }
+/* Night shift: a small crescent beside the population line. */
+#night-shift { flex: none; align-self: center; width: 11px; height: 11px; margin-right: auto; border-radius: 50%; box-shadow: 4px -2px 0 0 #e3d39e; opacity: .8; }
+/* Visitor log: six cells a row, three rows a page; unfound visitors are dim silhouettes. */
+#visitors { display: flex; flex-wrap: wrap; padding-top: 6px; }
+.visitor { width: 16.66%; padding: 6px 2px; text-align: center; }
+.visitor .visitor-icon { display: block; width: 44px; height: 44px; margin: 0 auto 4px; filter: drop-shadow(0 1px 2px #000); }
+.visitor.rarity-uncommon .visitor-icon { filter: drop-shadow(0 0 2px rgba(143,174,107,.75)) drop-shadow(0 1px 2px #000); }
+.visitor.rarity-rare .visitor-icon { filter: drop-shadow(0 0 3px rgba(235,196,118,.9)) drop-shadow(0 1px 2px #000); }
+.visitor span { display: block; font-size: 14px; line-height: 1.2; color: #ddd4ba; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.visitor.unfound span { color: #8f8a76; }
+/* The visitor log keeps only Back to More beside its grid, so three rows fit without scrolling. */
+#colony-settings.listing .more-actions button:not(#show-journal), #colony-settings.listing > p { display: none; }
+/* Pixel icons on fixed controls, the resource strip, achievements and the night-shift marker. */
+.item-head .sprite-icon { margin-top: -2px; margin-bottom: -2px; }
+.with-icon .sprite-icon { display: inline-block; vertical-align: middle; margin: -6px 6px -6px -4px; }
+button:disabled .sprite-icon { opacity: .5; }
+.resource .sprite-icon { display: inline-block; vertical-align: middle; margin: -10px -4px -6px 0; filter: drop-shadow(0 1px 2px #000); }
+#night-shift.with-icon { width: auto; height: auto; border-radius: 0; box-shadow: none; opacity: 1; margin: 2px auto -6px 0; }
+#night-shift.with-icon .sprite-icon { margin: 0; }
+.achievement { padding: 8px 0; }
+.achievement .sprite-icon { float: left; margin: -3px 8px 0 -4px; }
+.achievement.locked .sprite-icon { opacity: .45; }
+/* Feedback motion: one-shot transform and opacity only, so the compositor carries it. Each runs under
+   two names so the colony can restart it by swapping classes. */
+@keyframes pop-a { 45% { transform: scale(1.08); } }
+@keyframes pop-b { 45% { transform: scale(1.08); } }
+.resource strong { transform-origin: 100% 60%; }
+.resource strong.pop-a { animation: pop-a 220ms ease-out; }
+.resource strong.pop-b { animation: pop-b 220ms ease-out; }
+@keyframes toast-in { from { opacity: 0; transform: translateY(10px); } }
+@keyframes toast-out { to { opacity: 0; transform: translateY(6px); } }
+#milestone { animation: toast-in 240ms ease-out; }
+#milestone.leaving { animation: toast-out 300ms ease-in forwards; }
+@keyframes menu-in { from { opacity: 0; transform: translateY(8px); } }
+#menu { animation: menu-in 180ms steps(2, end); }
+.item { position: relative; transition: opacity .4s; }
+/* The wash reaches into the menu's 4 px side padding and no further; any wider and it gave every list page a
+   horizontal scroll bar. */
+.item::after { content: ''; position: absolute; left: -4px; right: -4px; top: 0; bottom: 0; border-radius: 6px; background: rgba(211,162,86,.2); opacity: 0; pointer-events: none; }
+@keyframes wash-a { from { opacity: 1; } to { opacity: 0; } }
+@keyframes wash-b { from { opacity: 1; } to { opacity: 0; } }
+.item.wash-a::after { animation: wash-a 450ms ease-out; }
+.item.wash-b::after { animation: wash-b 450ms ease-out; }
+@keyframes nudge-a { 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+@keyframes nudge-b { 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+.item .buy.nudge-a { animation: nudge-a 260ms ease-in-out; }
+.item .buy.nudge-b { animation: nudge-b 260ms ease-in-out; }
+.item .buy { position: relative; }
+.item .buy::after { content: ''; position: absolute; left: 10px; right: 10px; bottom: 2px; height: 2px; background: #d3a256; transform: scaleX(0); transform-origin: 0 50%; opacity: 0; pointer-events: none; }
+@keyframes sweep-a { 0% { opacity: 1; transform: scaleX(0); } 60% { opacity: 1; transform: scaleX(1); } 100% { opacity: 0; transform: scaleX(1); } }
+@keyframes sweep-b { 0% { opacity: 1; transform: scaleX(0); } 60% { opacity: 1; transform: scaleX(1); } 100% { opacity: 0; transform: scaleX(1); } }
+.item .buy.sweep-a::after { animation: sweep-a 700ms ease-out; }
+.item .buy.sweep-b::after { animation: sweep-b 700ms ease-out; }
+@keyframes arrive-a { from { opacity: 0; transform: translateX(16px); } }
+@keyframes arrive-b { from { opacity: 0; transform: translateX(16px); } }
+.census-entry.arrive-a { animation: arrive-a 280ms ease-out; }
+.census-entry.arrive-b { animation: arrive-b 280ms ease-out; }
+/* UI moments: the pinned toast card, new tier reveal, order-of-magnitude stamp, achievement seal and
+   purchase pop. Pixel art comes from app/ui-art/ (scripts/build/build-moment-art.py) and is drawn at whole multiples of
+   its native size. Only transform and opacity animate, for at most 600 ms, and step-end holds each pixel
+   size rather than easing between them. Every moment runs under two class names, as above. */
+.intro-icon, .intro-icon canvas, .toast-seal, #milestone::before, #unit-intro::before, #hint-card::before, .stamp-a::before, .stamp-b::before { image-rendering: -webkit-optimize-contrast; image-rendering: pixelated; }
+/* Toasts are a scrap of card pinned in place: a warm translucent tint, a light top edge, a folded corner
+   and the 16x16 pin at 2x, centred on the top edge. */
+#milestone, #unit-intro, #hint-card { overflow: visible; padding-top: 18px; border: 0; border-top: 1px solid rgba(226,204,156,.32); border-radius: 0; background: linear-gradient(315deg, transparent 9px, rgba(36,32,23,.84) 9px); }
+#milestone::before, #unit-intro::before, #hint-card::before { content: ''; position: absolute; top: -16px; left: 50%; margin-left: -16px; width: 32px; height: 32px; background: url(ui-art/popup_pin.png) 0 0 / 100% 100% no-repeat; }
+#milestone::after, #unit-intro::after, #hint-card::after { content: ''; position: absolute; right: 0; bottom: 0; width: 13px; height: 13px; background: linear-gradient(315deg, transparent 50%, rgba(122,106,76,.9) 50%); }
+/* New tier reveal: the 32 px unit icon at 1x, 2x, then 3x, behind which a soft rim of light comes and goes. */
+#unit-intro .intro-icon { float: left; position: relative; z-index: 0; width: 96px; height: 96px; margin: -6px 12px 0 -8px; }
+#unit-intro .intro-icon canvas { display: block; width: 96px; height: 96px; margin: 0; filter: drop-shadow(0 1px 2px #000); }
+#unit-intro .intro-icon::before { content: ''; position: absolute; left: -8px; top: -8px; right: -8px; bottom: -8px; z-index: -1; border-radius: 50%; background: radial-gradient(closest-side, rgba(240,217,160,0) 50%, rgba(240,217,160,.36) 76%, rgba(240,217,160,0) 100%); opacity: 0; }
+@keyframes reveal-a { 0% { transform: scale(.33333); } 20% { transform: scale(.66667); } 40%, 100% { transform: none; } }
+@keyframes reveal-b { 0% { transform: scale(.33333); } 20% { transform: scale(.66667); } 40%, 100% { transform: none; } }
+@keyframes reveal-rim-a { 0% { opacity: 0; } 35% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes reveal-rim-b { 0% { opacity: 0; } 35% { opacity: 1; } 100% { opacity: 0; } }
+#unit-intro .intro-icon.reveal-a { animation: reveal-a 600ms step-end; }
+#unit-intro .intro-icon.reveal-b { animation: reveal-b 600ms step-end; }
+#unit-intro .intro-icon.reveal-a::before { animation: reveal-rim-a 600ms ease-out; }
+#unit-intro .intro-icon.reveal-b::before { animation: reveal-rim-b 600ms ease-out; }
+/* Order-of-magnitude stamp: an ochre copy of the new figure lies over it and steps away, and the 16x16
+   badge lands at 3x, sits at 2x and leaves. Resource figures are right-aligned, census figures left. */
+.resource strong, .census-text strong { position: relative; }
+.stamp-a::after, .stamp-b::after { content: attr(data-stamp); position: absolute; left: 0; right: 0; top: 0; color: #d3a256; pointer-events: none; opacity: 0; }
+.stamp-a::before, .stamp-b::before { content: ''; position: absolute; top: -32px; width: 32px; height: 32px; background: url(ui-art/magnitude_badge.png) 0 0 / 100% 100% no-repeat; transform-origin: 50% 100%; pointer-events: none; opacity: 0; }
+.resource strong::before { right: 0; }
+.census-text strong::before { left: 0; }
+@keyframes stamp-a { 0%, 45% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes stamp-b { 0%, 45% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes stamp-badge-a { 0% { opacity: 1; transform: scale(1.5); } 15% { opacity: 1; transform: none; } 75% { opacity: .5; transform: none; } 100% { opacity: 0; transform: none; } }
+@keyframes stamp-badge-b { 0% { opacity: 1; transform: scale(1.5); } 15% { opacity: 1; transform: none; } 75% { opacity: .5; transform: none; } 100% { opacity: 0; transform: none; } }
+.stamp-a::after { animation: stamp-a 600ms steps(3, end); }
+.stamp-b::after { animation: stamp-b 600ms steps(3, end); }
+.stamp-a::before { animation: stamp-badge-a 600ms step-end; }
+.stamp-b::before { animation: stamp-badge-b 600ms step-end; }
+/* Achievement seal: the 32x32 medal stamps down from 3x through 2x to rest at 1x. */
+#milestone .toast-seal { float: left; width: 32px; height: 32px; margin: 0 10px 0 -4px; background: url(ui-art/achievement_medal.png) 0 0 / 100% 100% no-repeat; transform-origin: 50% 100%; }
+@keyframes seal-a { 0% { opacity: 0; } 25% { opacity: 1; transform: scale(3); } 50% { opacity: 1; transform: scale(2); } 75%, 100% { opacity: 1; transform: none; } }
+@keyframes seal-b { 0% { opacity: 0; } 25% { opacity: 1; transform: scale(3); } 50% { opacity: 1; transform: scale(2); } 75%, 100% { opacity: 1; transform: none; } }
+#milestone .toast-seal.seal-a { animation: seal-a 320ms step-end; }
+#milestone .toast-seal.seal-b { animation: seal-b 320ms step-end; }
+/* Purchase pop: the icon grows a pixel step and settles; the changed count rolls up into place. */
+@keyframes bump-a { 0% { transform: scale(1.125); } 50% { transform: scale(1.0625); } 100% { transform: none; } }
+@keyframes bump-b { 0% { transform: scale(1.125); } 50% { transform: scale(1.0625); } 100% { transform: none; } }
+.bump-a { animation: bump-a 240ms step-end; }
+.bump-b { animation: bump-b 240ms step-end; }
+@keyframes roll-a { 0% { opacity: .3; transform: translateY(.5em); } 34% { opacity: .7; transform: translateY(.25em); } 67%, 100% { opacity: 1; transform: none; } }
+@keyframes roll-b { 0% { opacity: .3; transform: translateY(.5em); } 34% { opacity: .7; transform: translateY(.25em); } 67%, 100% { opacity: 1; transform: none; } }
+.roll-a { animation: roll-a 240ms step-end; }
+.roll-b { animation: roll-b 240ms step-end; }
+@keyframes hop-a { 40% { transform: translateY(-5px); } }
+@keyframes hop-b { 40% { transform: translateY(-5px); } }
+.census-entry .hop-a { animation: hop-a 260ms ease-out; }
+.census-entry .hop-b { animation: hop-b 260ms ease-out; }
+/* The quick-buy strip has its own line under the census, clear of the + button; Red's Catch chip and
+   the night-shift icon share the line below it, in place of the population line. All of it lives in
+   the footer, so burn-in dimming, drift and critters-only hiding apply unchanged. */
+.compact footer { flex-wrap: wrap; align-items: center; margin-top: 0; padding-right: 76px; }
+#quick { display: flex; flex: 0 0 100%; order: -1; justify-content: flex-end; align-items: center; margin: 6px 0 2px 0; }
+#quick[hidden], #red-cue[hidden], #stage[hidden] { display: none; }
+#colony:not(.compact) #quick { display: none; }
+/* Each pick is a keycap and a 48 px icon, with an 8 px row beneath for the fill bar. The badge (what a press
+   buys) sits on the icon's lower right corner and shows only when affordable; the bar only when not. */
+.quick-pick { position: relative; z-index: 0; display: flex; align-items: center; margin: 0 0 0 2px; padding: 0 0 8px; border: 0; border-radius: 0; background: transparent; }
+.quick-command { display: flex; flex: none; align-items: center; margin: 0 0 0 4px; padding: 0 0 8px; border: 0; border-radius: 0; background: transparent; }
+.quick-command:focus { outline: 0; box-shadow: none; background: transparent; border-image: none; }
+#quick-watch canvas { display: block; width: 32px; height: 32px; margin: -5px -4px -5px -3px; image-rendering: pixelated; filter: drop-shadow(0 1px 2px #000); }
+#colony.watch #quick-watch .keycap { color: #1c160c; background: #e7d7a4; }
+.quick-pick:focus { outline: 0; box-shadow: none; background: transparent; }
+.quick-pick .keycap, .quick-command .keycap, #quick-note .keycap, #quick-hint .keycap, #hint-card .keycap { position: relative; flex: none; min-width: 16px; padding: 0 2px; margin-right: 1px; font-size: 18px; line-height: 21px; color: #f1ead6; text-align: center; border: 1.6px solid rgba(232,224,200,.75); border-radius: 4px; background: rgba(20,22,16,.72); font-variant-numeric: tabular-nums; }
+/* A 64 px atlas cell whose art fills its middle 48 px, so the box is 48 px and the cell's empty rim overhangs it. */
+.quick-pick .quick-icon { display: block; width: 48px; height: 48px; }
+.quick-pick .quick-icon .sprite-icon { display: block; margin: -8px; filter: drop-shadow(0 0 1px rgba(238,231,215,.6)) drop-shadow(0 1px 2px #000); }
+.quick-pick .quick-icon .item-icon { margin: 17px; }
+.quick-pick .quick-badge { position: absolute; right: 0; bottom: 0; padding: 0 3px; font-size: 15px; font-weight: bold; line-height: 16px; color: #f4ead0; white-space: nowrap; border-radius: 3px; background: rgba(20,22,16,.8); font-variant-numeric: tabular-nums; pointer-events: none; }
+.quick-pick .quick-badge.long { font-size: 13px; }
+/* The menu's segmented bar with five segments, so it spans the icon and lights in fifths. */
+.quick-pick .quick-bar { position: absolute; right: 0; bottom: 0; width: 56px; }
+.quick-pick.short .quick-icon { opacity: .45; }
+.quick-pick.short .keycap { opacity: .7; }
+.quick-pick.nudge-a { animation: nudge-a 260ms ease-in-out; }
+.quick-pick.nudge-b { animation: nudge-b 260ms ease-in-out; }
+/* A purchase: the icon bumps (the purchase pop), the keycap lights and fades in three steps, and the bought
+   amount in 3x pixel digits climbs one art pixel per step and fades. */
+.quick-pick .keycap::after, .quick-command .keycap::after { content: ''; position: absolute; left: -1.6px; top: -1.6px; right: -1.6px; bottom: -1.6px; border-radius: 4px; background: rgba(243,223,166,.9); opacity: 0; pointer-events: none; }
+@keyframes keylit-a { from { opacity: 1; } to { opacity: 0; } }
+@keyframes keylit-b { from { opacity: 1; } to { opacity: 0; } }
+.quick-pick .keycap.keylit-a::after, .quick-command .keycap.keylit-a::after { animation: keylit-a 300ms steps(3, end); }
+.quick-pick .keycap.keylit-b::after, .quick-command .keycap.keylit-b::after { animation: keylit-b 300ms steps(3, end); }
+#quick-auto.paused .keycap { opacity: .5; border-style: dashed; }
+#quick-auto[data-state="waiting"] .keycap { border-color: #d3a256; color: #f6dc8e; }
+.quick-pick.pinned .keycap::before { content: ''; position: absolute; top: -6px; left: -6px; width: 16px; height: 16px; background: url(ui-art/status_pin.png) 0 0 / 16px 16px no-repeat; image-rendering: -webkit-optimize-contrast; image-rendering: pixelated; pointer-events: none; }
+.quick-pick .quick-rise { position: absolute; right: 24px; bottom: 30px; opacity: 0; image-rendering: pixelated; pointer-events: none; }
+@keyframes rise-a { 0% { opacity: 1; transform: none; } 62.5% { opacity: 1; transform: translateY(-15px); } 100% { opacity: 0; transform: translateY(-24px); } }
+@keyframes rise-b { 0% { opacity: 1; transform: none; } 62.5% { opacity: 1; transform: translateY(-15px); } 100% { opacity: 0; transform: translateY(-24px); } }
+.quick-pick .quick-rise.rise-a { animation: rise-a 500ms steps(8, end); }
+.quick-pick .quick-rise.rise-b { animation: rise-b 500ms steps(8, end); }
+/* Affordable again: a soft rim of light behind the icon comes and goes once. */
+.quick-pick::before { content: ''; position: absolute; right: -6px; top: -6px; width: 60px; height: 60px; z-index: -1; border-radius: 50%; background: radial-gradient(closest-side, rgba(240,217,160,0) 45%, rgba(240,217,160,.5) 75%, rgba(240,217,160,0) 100%); opacity: 0; pointer-events: none; }
+@keyframes ready-a { 0% { opacity: 0; transform: scale(.8); } 30% { opacity: 1; transform: none; } 100% { opacity: 0; transform: scale(1.1); } }
+@keyframes ready-b { 0% { opacity: 0; transform: scale(.8); } 30% { opacity: 1; transform: none; } 100% { opacity: 0; transform: scale(1.1); } }
+.quick-pick.ready-a::before { animation: ready-a 600ms steps(6, end); }
+.quick-pick.ready-b::before { animation: ready-b 600ms steps(6, end); }
+/* A hint's goal pick: the same rim, once, so the strip shows which key the goal wants. */
+@keyframes beckon-a { 0% { opacity: 0; transform: scale(.8); } 30% { opacity: 1; transform: none; } 100% { opacity: 0; transform: scale(1.1); } }
+@keyframes beckon-b { 0% { opacity: 0; transform: scale(.8); } 30% { opacity: 1; transform: none; } 100% { opacity: 0; transform: scale(1.1); } }
+.quick-pick.beckon-a::before { animation: beckon-a 600ms steps(6, end); }
+.quick-pick.beckon-b::before { animation: beckon-b 600ms steps(6, end); }
+/* Key 0's hint closes the strip: its keycap and a pixel "?" at 5x, narrower than a pick so all five fit the
+   480 px footprint beside the + button. */
+#quick-hint { display: flex; flex: none; align-items: center; margin: 0 0 0 4px; padding: 0 0 8px; border: 0; border-radius: 0; background: transparent; }
+#quick-hint:focus { outline: 0; box-shadow: none; background: transparent; border-image: none; }
+#quick-hint canvas { display: block; width: 18px !important; height: 22px !important; margin: 0 2px 2px 0 !important; image-rendering: pixelated; filter: drop-shadow(0 1px 2px #000); }
+#colony.watch #quick { padding-right: 4px; }
+/* The hint card: a pinned card like the toasts, the controls' full width, with the tutorial step and the next
+   goal at couch size. */
+#hint-card { position: absolute; bottom: calc(100% + 10px); right: 0; width: 100%; pointer-events: none; text-shadow: 0 1px 3px #000; animation: toast-in 240ms ease-out; }
+#hint-card strong { display: flex; align-items: center; color: #e3d2aa; font-size: 20px; font-weight: 500; }
+#hint-card strong .keycap { font-size: 15px; line-height: 17px; min-width: 15px; margin-right: 8px; }
+#hint-card p { font-size: 21px; line-height: 1.4; margin: 6px 0 0; color: #f0e9d6; }
+#hint-card .hint-goal { display: block; font-size: 18px; line-height: 1.35; margin: 8px 0 4px; color: #dcc690; }
+#hint-card .hint-goal:empty { display: none; }
+/* The strip's note (a new pick's name, or how long a short one will take) sits at the right of the line below
+   it. It holds for two seconds and fades over the last 300 ms; at rest it is invisible until hidden. */
+#quick-note { display: flex; flex: 1 1 auto; align-items: center; min-width: 0; max-width: 50%; margin-left: auto; font-size: 18px; color: #efe3c2; white-space: nowrap; opacity: 0; }
+#quick-note .keycap { font-size: 15px; line-height: 17px; min-width: 15px; margin-right: 6px; }
+#quick-note span:last-child { overflow: hidden; text-overflow: ellipsis; }
+@keyframes note-a { 0%, 85% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes note-b { 0%, 85% { opacity: 1; } 100% { opacity: 0; } }
+#quick-note.note-a { animation: note-a 2000ms linear; }
+#quick-note.note-b { animation: note-b 2000ms linear; }
+#red-cue { display: flex; flex: 0 0 auto; align-items: center; margin-right: auto; color: #e3c4b8; font-size: 18px; white-space: nowrap; }
+#red-cue .red-glyph { flex: none; width: 32px; height: 16px; margin-right: 7px; }
+#red-cue span { overflow: hidden; text-overflow: ellipsis; }
+
+/* ---- Pixel menu chrome ----------------------------------------------------------------------
+   Art slots in ui-art/ (listed in docs/ui-spec.md) drawn at whole-number scales so every art pixel
+   stays square. Replacing a slot with final art of the same size needs no CSS change. */
+/* Packed-soil frame: the nine-slice of 8 px tiles at 2x, its centre tile supplying the light tint.
+   The 16 px border replaces the old border and most of the padding, so content keeps its size. */
+#menu, #milestone, #key-help, #unit-intro, #hint-card { background: none; border-style: solid; border-color: transparent; border-width: 16px; border-radius: 0; border-image: url(ui-art/ui_border_9slice.png) 8 fill / 16px / 0 repeat; image-rendering: pixelated; }
+/* The frame is drawn 16 px wide whatever the border width, so a thinner border with more padding keeps the same
+   content box while the scroll clip moves out into the frame band, leaving room for a focused row's brackets. */
+#menu { border-width: 7.6px; padding: 8px 12px; }
+/* Nothing in the overlay scrolls sideways; this guards the vertical scrollers against a stray wide child. */
+#menu, #dialog, #key-help { overflow-x: hidden; }
+#milestone, #unit-intro, #hint-card { padding: 18px 8px 6px; }
+#key-help { padding: 6px 8px; max-height: 360px; }
+#key-help p { font-size: 16.5px; line-height: 1.32; margin: 5px 0 0; }
+#evolution p { font-size: 19px; line-height: 1.35; margin: 8px 0; }
+/* Focus brackets: four bone corners at 2x through border-image, whose width and outset never take
+   layout, in place of the rounded glow. */
+button:focus { outline: none; box-shadow: none; border-style: solid; border-image: url(ui-art/built/ui_focus_9slice.png) 8 / 16px / 2px; image-rendering: pixelated; }
+/* Inside a list row the row carries the brackets; the focused control keeps a crisp bone edge. */
+.item:focus-within { border-style: solid; border-width: 1.6px 0 0; border-image: url(ui-art/built/ui_focus_9slice.png) 8 / 16px / 4px 10px; image-rendering: pixelated; }
+.item button:focus { border-image: none; border-color: #eedcb6; border-radius: 0; }
+/* 32 px pixel glyphs beside the words on the menu views and quantity buttons. */
+#menu-views button, #quantities button { white-space: nowrap; }
+#menu-views button::before, #quantities button::before { content: ''; display: inline-block; vertical-align: middle; width: 32px; height: 32px; background: 0 0 / 32px 32px no-repeat; image-rendering: pixelated; }
+#menu-views button::before { margin: -8px 4px -6px -4px; }
+#quantities button::before { margin: -9px 0 -7px -8px; }
+#quantities button { padding-left: 8px; padding-right: 10px; }
+#menu-views [data-view="units"]::before { background-image: url(ui-art/tab_units.png); }
+#menu-views [data-view="upgrades"]::before { background-image: url(ui-art/tab_upgrades.png); }
+#menu-views [data-view="evolution"]::before { background-image: url(ui-art/tab_evolution.png); }
+#menu-views [data-view="more"]::before { background-image: url(ui-art/tab_more.png); }
+#quantities [data-quantity="1"]::before { background-image: url(ui-art/qty_1.png); }
+#quantities [data-quantity="10"]::before { background-image: url(ui-art/qty_10.png); }
+#quantities [data-quantity="max"]::before { background-image: url(ui-art/qty_max.png); }
+#menu-views button:not(.active)::before, #quantities button:not(.active)::before { opacity: .7; }
+/* Segmented bars at 1x: a cap, ten 8 px segments and a cap, lit only for whole tenths. */
+.pixel-bar { display: flex; width: 96px; height: 8px; pointer-events: none; }
+.pixel-bar::before, .pixel-bar::after, .pixel-bar i { content: ''; flex: none; width: 8px; height: 8px; background: url(ui-art/progress_segment_empty.png) 0 0 / 8px 8px no-repeat; image-rendering: pixelated; }
+.pixel-bar::before { background-image: url(ui-art/progress_cap_left.png); }
+.pixel-bar::after { background-image: url(ui-art/progress_cap_right.png); }
+.pixel-bar i.on { background-image: url(ui-art/progress_segment_full.png); }
+.item .row-bar { position: absolute; right: 18px; bottom: 9px; }
+.item .description:not([hidden]) ~ .row-bar, .item .row-tools:not([hidden]) ~ .row-bar { display: none; }
+.item .row-tools { display: flex; flex-wrap: wrap; margin-top: 6px; }
+.item .row-tools button { font-size: 15.5px; padding: 3px 9px; margin: 2px 6px 0 0; }
+.item.locked .cost { padding-right: 122px; }
+#chronicle { padding-top: 4px; font-size: 17px; line-height: 1.3; color: #ddd6bc; }
+.chronicle-block { padding: 5px 0; border-top: 1.6px solid rgba(201,185,141,.16); }
+.chronicle-block:first-child { border-top: 0; padding-top: 2px; }
+.chronicle-block strong { display: block; font-size: 18px; font-weight: 500; color: #ead3a6; margin-bottom: 3px; }
+.chronicle-block p { font-size: 16.5px; line-height: 1.3; color: #c9c4ab; margin: 2px 0; overflow: hidden; text-overflow: ellipsis; }
+.chronicle-actions { display: flex; flex-wrap: wrap; align-items: center; margin-top: 3px; }
+.chronicle-actions button { font-size: 16.5px; padding: 3px 9px; margin: 2px 6px 2px 0; }
+.chronicle-bar { margin: 4px 0; }
+.with-glyph .ui-glyph { display: inline-block; vertical-align: -4px; width: 20px; height: 20px; margin-right: 6px; image-rendering: -webkit-optimize-contrast; image-rendering: pixelated; }
+.row-tools .pin-toggle::before, .row-tools .reserve-toggle::before { content: ''; display: inline-block; vertical-align: -3px; width: 16px; height: 16px; margin-right: 5px; background: 0 0 / 16px 16px no-repeat; image-rendering: -webkit-optimize-contrast; image-rendering: pixelated; }
+.row-tools .pin-toggle::before { background-image: url(ui-art/status_pin.png); }
+.row-tools .reserve-toggle::before { background-image: url(ui-art/status_reserve.png); }
+#quick-auto::after { content: ''; display: inline-block; width: 18px; height: 18px; margin-left: 1px; background: url(ui-art/status_play.png) 0 0 / 18px 18px no-repeat; image-rendering: -webkit-optimize-contrast; image-rendering: pixelated; }
+#quick-auto.paused::after { background-image: url(ui-art/status_pause.png); opacity: .7; }
+#quick-auto.waiting::after { background-image: url(ui-art/status_wait.png); }
+.activity-row { padding: 4px 0; border-top: 1px solid rgba(201,185,141,.14); }
+.activity-row:first-child { border-top: 0; }
+.activity-row strong { font-size: 17px; font-weight: 500; color: #e3d2aa; }
+.activity-row span { float: right; font-size: 14px; color: #aaa891; }
+.activity-row p { font-size: 15.5px; color: #c9c4ab; margin: 1px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.keepsake-grid { display: flex; flex-wrap: wrap; margin-top: 3px; }
+.keepsake-cell { display: flex; align-items: center; width: 50%; padding: 1px 4px 1px 0; font-size: 15px; color: #ddd6bc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.keepsake-cell .keepsake-icon { flex: none; width: 24px; height: 24px; margin-right: 5px; filter: drop-shadow(0 1px 2px #000); }
+.keepsake-cell span { overflow: hidden; text-overflow: ellipsis; }
+.keepsake-cell.locked { color: #8f8a76; }
+.achievement { position: relative; }
+.achievement .achievement-bar { position: absolute; right: 0; bottom: 13px; }
+.achievement.locked p { padding-right: 104px; }
+
+/* ---- Standalone terrarium UI ----------------------------------------------------------------
+   With a dark earthen floor behind the whole screen and no video center to avoid, resources and
+   census move to a frameless top bar, the command deck widens to 720 px with six rows per page,
+   and panels drop their opaque fills so roaches and trails stay visible underneath. */
+body.standalone #resources { position: fixed; top: 18px; left: 28px; z-index: 2; justify-content: flex-start; flex-wrap: wrap; max-width: 50vw; text-shadow: 0 1px 2px rgba(0,0,0,.85); }
+body.standalone .resource { margin: 0 22px 6px 0; text-align: left; }
+body.standalone .resource strong { min-width: 0; }
+body.standalone .compact .resource:nth-child(n+3):not([hidden]) { display: block !important; }
+body.standalone #census { position: fixed; top: 14px; right: 28px; z-index: 2; margin-right: 0; max-width: 36vw; flex-wrap: wrap; text-shadow: 0 1px 2px rgba(0,0,0,.85); }
+body.standalone .census-entry { margin-left: 14px; }
+body.standalone #colony { bottom: 28px; right: 28px; max-height: calc(100vh - 110px); }
+body.standalone #colony:not(.compact) { width: 720px; max-width: calc(100vw - 56px); }
+body.standalone #colony.compact { width: 520px; }
+body.standalone #plus { bottom: 6px; }
+body.standalone #menu { max-height: calc(100vh - 180px); padding: 14px 20px; background: rgba(18, 14, 10, .48); border: 1.5px solid rgba(214, 193, 143, .32); border-image: none; border-radius: 10px; box-shadow: none; }
+body.standalone #milestone, body.standalone #key-help, body.standalone #unit-intro, body.standalone #hint-card { background: rgba(20, 16, 11, .62); border: 1.5px solid rgba(214, 193, 143, .34); border-image: none; border-radius: 8px; padding: 12px 16px; }
+body.standalone #milestone::before, body.standalone #unit-intro::before, body.standalone #hint-card::before, body.standalone #milestone::after, body.standalone #unit-intro::after, body.standalone #hint-card::after { display: none; }
+body.standalone #dialog { background: rgba(18, 14, 10, .82); border-color: rgba(214, 193, 143, .38); box-shadow: none; }
+body.standalone #menu button:not(.details):not(#close), body.standalone .dialog-buttons button { background: rgba(42, 35, 23, .36); border-color: rgba(214, 193, 143, .26); }
+body.standalone #menu button.active:not(.details):not(#close) { background: rgba(115, 96, 48, .48); border-color: rgba(230, 205, 140, .75); }
+body.standalone #menu button:disabled:not(.details):not(#close), body.standalone #menu button[aria-disabled="true"]:not(.details):not(#close) { background: rgba(24, 22, 16, .22); border-color: rgba(161, 155, 130, .14); }
+
+

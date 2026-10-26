@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#12100c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Roach Colony">
+<meta name="application-name" content="Roach Colony">
+<title>Roach Colony</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="preload" href="fonts/atkinson-hyperlegible-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="phone.css">
+</head>
+<body>
+<section id="pairing" class="state pairing" hidden>
+  <h1 class="display">Pair with your TV</h1>
+  <p id="pairing-message" class="message" hidden></p>
+  <ol class="steps">
+    <li><span class="n">1</span><span>On the TV, press <b>Yellow</b> until you reach <b>More</b>.</span></li>
+    <li><span class="n">2</span><span>Choose <b>Phone controller</b> to show a code.</span></li>
+    <li><span class="n">3</span><span id="pair-step">Scan it with your camera. It works for five minutes, once.</span></li>
+  </ol>
+  <div id="pair-code" class="pair-code" hidden>
+    <label for="pair-code-input">Pairing link or code</label>
+    <div class="pair-code-row"><input id="pair-code-input" type="text" inputmode="url" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go"><button type="button" id="pair-code-go">Pair</button></div>
+  </div>
+  <div class="aside">Your phone and TV need to be on the same Wi-Fi. Nothing leaves your home network.</div>
+</section>
+
+<section id="paused" class="state" hidden>
+  <div class="line"><span class="dot paused" aria-hidden="true"></span><span id="paused-status">Colony paused</span></div>
+  <div class="center">
+    <svg width="96" height="96" viewBox="0 0 32 32" aria-hidden="true"><g stroke="#3a2c20" stroke-width="1.4" stroke-linecap="round" fill="none"><path d="M11 12 L6 7.5 M11 16 L4.5 16 M11 20 L6 24.5 M17 11.5 L20 6.5 M17 20.5 L20 25.5"/></g><ellipse cx="15" cy="16" rx="8.5" ry="5.6" fill="#4a3a2a" stroke="#2a2118" stroke-width="1.2"/><circle cx="24.5" cy="16" r="3" fill="#2e241a"/><path d="M8 26 Q16 29 24 26" stroke="#6f6553" stroke-width="1" fill="none" stroke-dasharray="1 2"/></svg>
+    <h1 class="display">The roaches are resting</h1>
+    <p>Nothing grows while the colony is hidden. Show it on the TV to keep playing from here.</p>
+    <button type="button" id="show" class="primary">Show on the TV</button>
+    <span id="last-seen" class="seen"></span>
+  </div>
+</section>
+
+<section id="reconnecting" class="state" hidden>
+  <div class="banner" role="status">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d3a256" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>
+    <div><b id="reconnect-title">Reconnecting to the TV</b><span>Buttons wait until the colony answers.</span></div>
+  </div>
+  <div class="skeleton" aria-hidden="true"><div></div><div></div><div></div><div></div></div>
+  <p class="explain">A purchase you tapped just before the connection dropped is checked first, so it is never bought twice.</p>
+</section>
+
+<main id="colony" class="screen" hidden>
+  <header class="status-head">
+    <div class="who"><span class="dot" aria-hidden="true"></span><div><span class="status-title" id="status-text">Live on the TV</span><span class="status-sub">Growing while shown</span></div></div>
+    <button type="button" id="hide" class="pill" aria-label="Hide the colony from the TV"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18"/><path d="M10.6 6.1A10.5 10.5 0 0 1 12 6c6 0 9.5 6 9.5 6a17 17 0 0 1-3.2 3.9"/><path d="M6.4 6.5C3.9 8.2 2.5 12 2.5 12s3.5 6 9.5 6a9.7 9.7 0 0 0 4.2-.9"/></svg>Hide</button>
+  </header>
+  <section id="resources" class="resources" aria-label="Resources"></section>
+  <section id="leader" class="leader" aria-label="Colony leader" hidden>
+    <div class="portrait" aria-hidden="true"><img id="leader-icon" alt=""></div>
+    <div class="body">
+      <div><span id="leader-count" class="count display num"></span><span id="leader-name" class="name"></span><span id="leader-rate" class="leader-rate num" hidden></span></div>
+      <div class="next"><span id="leader-next"></span><span id="leader-eta" class="eta num"></span></div>
+      <div id="leader-bar" class="bar" data-segments="20" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+  </section>
+  <p id="goal" class="panel goal" role="status" hidden></p>
+  <section id="hint" class="panel hint" aria-label="Hint" hidden>
+    <button type="button" id="hint-toggle" class="hint-toggle" aria-expanded="false" aria-controls="hint-body"><span class="hint-mark" aria-hidden="true">?</span>Hint</button>
+    <div id="hint-body" hidden><p id="hint-text"></p><p id="hint-goal" class="hint-goal"></p></div>
+  </section>
+  <section id="colony-event-choice" class="panel event-choice" aria-label="Event choice" hidden></section>
+  <section id="colony-reserve" class="panel reserve-banner" aria-label="Active reserve" hidden></section>
+  <div id="phone-quick" class="phone-quick" aria-label="Quick picks" hidden></div>
+  <div class="list-tools">
+    <div id="tabs" class="segmented" role="tablist" aria-label="Colony"></div>
+    <div class="qty-row">
+      <span class="hint">Buy at a time</span>
+      <div id="quantity" class="segmented" role="group" aria-label="Quantity"><button type="button" data-quantity="1">1</button><button type="button" data-quantity="10">10</button><button type="button" data-quantity="max">Max</button></div>
+    </div>
+  </div>
+  <section id="units" class="cards" aria-label="Units"></section>
+  <p id="units-empty" class="empty" hidden>Nothing here yet. The next goal unlocks more.</p>
+</main>
+
+<main id="upgrades" class="screen" hidden>
+  <header class="page-head"><h1 class="display">Upgrades</h1><div class="mini-status"><span class="dot small" aria-hidden="true"></span>Live on the TV</div></header>
+  <div id="inline-resources" class="inline-resources num"></div>
+  <div id="groups" class="chips" role="tablist" aria-label="Upgrade group"></div>
+  <section class="cards" aria-label="Upgrades">
+    <h2 class="section-label" id="ready-label">Ready now</h2>
+    <div id="ready"></div>
+    <h2 class="section-label later" id="saving-label">Saving up</h2>
+    <div id="saving"></div>
+    <p id="upgrades-empty" class="empty" hidden>No upgrades here yet.</p>
+  </section>
+</main>
+
+<main id="more" class="screen" hidden>
+  <header class="page-head"><h1 class="display">More</h1></header>
+  <section id="more-event-choice" class="panel event-choice" aria-label="Event choice" hidden></section>
+  <section id="more-reserve" class="panel reserve-banner" aria-label="Active reserve" hidden></section>
+  <section class="panel" aria-labelledby="tv-h">
+    <div class="panel-head"><h2 id="tv-h">On the TV</h2><span class="showing"><span class="dot small" aria-hidden="true"></span>Showing</span></div>
+    <div id="levels" class="levels" role="radiogroup" aria-label="How much the TV shows" hidden></div>
+    <div class="pair-buttons"><button type="button" id="more-show" disabled>Show</button><button type="button" id="more-hide">Hide &amp; pause</button></div>
+  </section>
+  <section class="panel" aria-labelledby="auto-h">
+    <div class="panel-head"><div><h2 id="auto-h">Auto-buy</h2><span id="auto-summary" class="sub"></span></div><button type="button" id="auto-pause" class="small-button"></button></div>
+    <ul id="auto-targets" class="rows"></ul>
+    <span class="footnote">Auto-buy runs only while the colony is shown and waits quietly for funds.</span>
+  </section>
+  <section id="evolution" class="panel evolution" aria-labelledby="evo-h" hidden>
+    <div class="panel-head"><div class="titled"><img class="meta-icon" data-meta="ascension" alt="" hidden><h2 id="evo-h"></h2></div><span id="evo-ready" class="ready num"></span></div>
+    <p id="evo-text"></p>
+    <p id="evo-next" class="evo-next"></p>
+    <div id="evo-planner" class="evo-planner" hidden>
+      <p id="evo-warp" class="evo-warp" hidden></p>
+      <ul id="evo-thresholds" class="evo-thresholds"></ul>
+    </div>
+    <div id="evo-actions" class="pair-buttons evo-actions" hidden><button type="button" id="evo-ascend">Ascend</button><button type="button" id="evo-respec" hidden>Respec</button></div>
+  </section>
+  <section id="expedition-panel" class="panel" aria-labelledby="expedition-h">
+    <div class="panel-head"><div class="titled"><img class="status-icon" src="ui-art/status_expedition.png" width="24" height="24" alt=""><h2 id="expedition-h">Scout expeditions</h2></div><span id="expedition-status" class="sub num"></span></div>
+    <div id="expedition-active" class="expedition-active" hidden>
+      <div id="expedition-bar" class="bar" data-segments="20" role="progressbar" aria-label="Expedition progress" aria-valuemin="0" aria-valuemax="100"></div>
+      <button type="button" id="expedition-cancel" class="small-button">Cancel expedition</button>
+    </div>
+    <div id="expedition-options" class="expedition-options"></div>
+  </section>
+  <section class="panel" aria-labelledby="ach-h">
+    <div class="panel-head"><div class="titled"><img class="meta-icon" data-meta="achievement" alt="" hidden><h2 id="ach-h">Achievements</h2></div><span class="num"><b id="ach-earned"></b> / <span id="ach-total"></span></span></div>
+    <div id="ach-bar" class="bar" data-segments="20" role="progressbar" aria-label="Achievements earned" aria-valuemin="0" aria-valuemax="100"></div>
+    <button type="button" id="show-achievements" class="link">See all achievements</button>
+  </section>
+  <section id="visitor-panel" class="panel" aria-labelledby="visitors-h" hidden>
+    <div class="panel-head"><div class="titled"><img class="meta-icon" data-meta="visitors" alt="" hidden><h2 id="visitors-h">Visitors</h2></div><span class="num"><b id="visitors-found"></b> / <span id="visitors-total"></span></span></div>
+    <div id="visitors-bar" class="bar" data-segments="20" role="progressbar" aria-label="Visitors found" aria-valuemin="0" aria-valuemax="100"></div>
+    <p id="more-keepsakes" class="sub" hidden></p>
+    <button type="button" id="show-visitors" class="link">See the visitor log</button>
+  </section>
+  <section id="activity-panel" class="panel" aria-labelledby="activity-h">
+    <div class="panel-head"><div class="titled"><img class="status-icon" src="ui-art/status_play.png" width="24" height="24" alt=""><h2 id="activity-h">Recent activity</h2></div></div>
+    <ul id="activity-list" class="rows activity-rows"></ul>
+  </section>
+  <section id="records-panel" class="panel" aria-labelledby="records-h">
+    <div class="panel-head"><div class="titled"><img class="status-icon" src="ui-art/status_history.png" width="24" height="24" alt=""><h2 id="records-h">Colony recordbook</h2></div></div>
+    <div id="records-summary" class="records-summary"></div>
+    <ul id="records-runs" class="rows record-rows"></ul>
+  </section>
+  <section class="panel" aria-labelledby="phones-h">
+    <h2 id="phones-h">Paired phones</h2>
+    <ul id="phones" class="rows"></ul>
+  </section>
+  <section id="support-panel" class="panel" aria-labelledby="support-h">
+    <div class="panel-head"><div class="titled"><img class="status-icon" src="ui-art/status_inspect.png" width="24" height="24" alt=""><h2 id="support-h">Support &amp; diagnostics</h2></div></div>
+    <div id="support-body" class="support-body"></div>
+  </section>
+</main>
+
+<main id="achievements" class="screen" hidden>
+  <header class="page-head"><h1 class="display">Achievements</h1><button type="button" id="achievements-back" class="small-button">Back</button></header>
+  <section class="panel"><div id="achievement-list"></div></section>
+</main>
+
+<main id="visitors" class="screen" hidden>
+  <header class="page-head"><h1 class="display">Visitors</h1><button type="button" id="visitors-back" class="small-button">Back</button></header>
+  <p class="explain">Insects wander along the TV's edge now and then. Catch one with Red, or with the Red button here, to log it.</p>
+  <section id="keepsakes-panel" class="panel keepsakes-panel" aria-label="Keepsakes" hidden>
+    <div class="panel-head"><div class="titled"><img class="status-icon" src="ui-art/status_guide.png" width="24" height="24" alt=""><h2>Keepsakes</h2></div><span id="keepsakes-count" class="num"></span></div>
+    <ul id="keepsakes-list" class="rows keepsakes-rows"></ul>
+  </section>
+  <section class="panel"><div id="visitor-grid" class="visitor-grid"></div></section>
+</main>
+
+<div id="sheet" class="sheet-backdrop" hidden>
+  <button type="button" class="dismiss" id="sheet-close" aria-label="Close resource details"></button>
+  <section class="sheet" role="dialog" aria-labelledby="sheet-title">
+    <span class="grabber" aria-hidden="true"></span>
+    <div class="sheet-head"><div class="titled"><img id="sheet-icon" class="meta-icon" alt="" hidden><h2 id="sheet-title" class="display"></h2></div><span id="sheet-rate" class="rate num"></span></div>
+    <div class="big"><span id="sheet-amount" class="amount display num"></span><span id="sheet-cap" class="cap"></span></div>
+    <section><h3>Spent on</h3><div id="sheet-spends"></div></section>
+    <section><h3>Earned by</h3><p id="sheet-earned" class="earned"></p></section>
+  </section>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+<footer id="bottom" hidden>
+  <div id="action-bar" class="action-bar">
+    <button type="button" id="forage"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 14c-1.5 0-3-1-3-3 0-2.5 3-3 4-5 2 1 2.5 3 2 4.5"/><path d="M14 18.5c-2.5 0-4.5-1.5-4.5-4 0-3 3.5-4.5 6-4 2.5.5 4.5 2 4.5 4.5s-3 3.5-6 3.5z"/><path d="M15 13.5h.01"/></svg><img class="capsule" src="art/red_key_capsule.png" width="32" height="16" alt=""><span id="forage-label">Forage</span><span id="forage-crumbs" class="crumbs" aria-hidden="true"><i></i><i></i><i></i></span></button>
+    <button type="button" id="buy-last">Buy last<small id="last-label"></small></button>
+  </div>
+  <nav id="nav" class="sections" aria-label="Sections">
+    <button type="button" data-screen="colony"><img src="ui-art/tab_units.png" width="32" height="32" alt="">Colony</button>
+    <button type="button" data-screen="upgrades"><img src="ui-art/tab_upgrades.png" width="32" height="32" alt="">Upgrades</button>
+    <button type="button" data-screen="more"><img src="ui-art/tab_more.png" width="32" height="32" alt="">More</button>
+  </nav>
+</footer>
+<script src="theme.js"></script>
+<script src="phone.js"></script>
+</body>
+</html>

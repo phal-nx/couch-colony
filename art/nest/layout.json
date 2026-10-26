@@ -1,0 +1,17 @@
+{
+  "about": "Hand-authored, one entry per stage. entrance is the centre of the drawn hole. Overlay values are [dx, dy] offsets from where manifest.json registers that overlay on stage 4; null or [] hides it on that stage. nexus and pennant list one slot per copy, best first. trace holds hints for scripts/build/build-nest.py: dark (interior threshold), chamber (minimum inscribed radius), chambers (extra centres), drop (centres to ignore) and bridges (strokes the colony may walk over, such as ladders).",
+  "stages": [
+    {"entrance": [271, 198], "eggs": null, "crumbs": [210, 49], "nexus": [], "pennant": [[89, 105]], "annex": null,
+     "trace": {"chamber": 99, "chambers": [[240, 194]], "bridges": [{"points": [[263, 197], [270, 198]], "width": 3}]}},
+    {"entrance": [270, 196], "eggs": [86, 5], "crumbs": [210, 49], "nexus": [], "pennant": [[59, 76], [35, 85], [82, 86]], "annex": [99, 0],
+     "trace": {"bridges": [{"points": [[262, 196], [269, 196]], "width": 3}]}},
+    {"entrance": [268, 195], "eggs": [51, 5], "crumbs": [70, -4], "nexus": [[30, 28], [-7, -10]], "pennant": [[17, 28], [-6, 40], [41, 37]], "annex": [29, 0],
+     "trace": {"bridges": [{"points": [[260, 191], [267, 195]], "width": 3}]}},
+    {"entrance": [266, 194], "eggs": [0, 0], "crumbs": [0, 0], "nexus": [[0, 0], [23, 30], [-42, -25], [-90, 10], [60, 0]], "pennant": [[0, 0], [-24, 6], [24, 8], [-51, 25], [54, 26]], "annex": [0, 0],
+     "trace": {"bridges": [{"points": [[255, 194], [265, 194]], "width": 3}, {"points": [[112, 188], [128, 172], [121, 150]], "width": 4}]}},
+    {"entrance": [252, 193], "eggs": [50, -3], "crumbs": [4, -7], "nexus": [[14, -7], [-69, -45], [-112, -42], [-142, 0], [40, 30]], "pennant": [[1, -41], [-51, -18], [61, -5], [85, 11], [-91, -2]], "annex": [0, 0],
+     "trace": {"chamber": 8, "bridges": [{"points": [[240, 192], [252, 193]], "width": 4}]}},
+    {"entrance": [265, 193], "eggs": [41, -1], "crumbs": [-16, -9], "nexus": [[44, 2], [-40, -40], [0, -40], [-110, 10], [20, 40]], "pennant": [[-91, -15], [-66, -37], [-29, -45], [81, -27], [104, 9]], "annex": [0, 0],
+     "trace": {"chamber": 9, "drop": [[194, 154]], "bridges": [{"points": [[200, 88], [200, 142]], "width": 4}, {"points": [[250, 182], [263, 191]], "width": 4}, {"points": [[126, 144], [121, 158], [118, 175]], "width": 3}]}}
+  ]
+}

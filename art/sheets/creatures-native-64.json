@@ -1,0 +1,68 @@
+{
+  "cell": 64,
+  "visitors": false,
+  "units": {
+    "hatchling": "hatchling",
+    "spider": "house_spider",
+    "giantspider": "wolf_spider",
+    "centipede": "house_centipede",
+    "roach": "hissing_roach",
+    "bat": "brown_bat",
+    "prophet": "neuroprophet",
+    "goddess": "elder_sage",
+    "pantheon": "pantheon",
+    "pantheon2": "pantheon",
+    "pantheon3": "pantheon",
+    "pantheon4": "pantheon",
+    "pantheon5": "council_mind",
+    "overmind": "overmind",
+    "overmind2": "overmind",
+    "overmind3": "overmind",
+    "overmind4": "overmind",
+    "overmind5": "overmind",
+    "overmind6": "overmind"
+  },
+  "tints": {
+    "pantheon2": "#b49a50",
+    "pantheon3": "#6e8aa6",
+    "pantheon4": "#a8705a",
+    "overmind2": "#4f9a96",
+    "overmind3": "#7a64a0",
+    "overmind4": "#9a4e5e",
+    "overmind5": "#b89a58",
+    "overmind6": "#cfd0d8"
+  },
+  "resources": {
+    "meat": "bread_crumb",
+    "larva": "hatchling",
+    "territory": "territory_flag",
+    "energy": "resin_drop",
+    "mutagen": "mutagen_vial",
+    "premutagen": "mutagen_vial",
+    "cocoon": "egg_case",
+    "forage": "crumb_pile"
+  },
+  "meta": {
+    "goldenRoach": "golden_roach"
+  },
+  "icons": {
+    "house_spider": {"at": [0, 0], "view": "right"},
+    "wolf_spider": {"at": [1, 0], "view": "right"},
+    "house_centipede": {"at": [2, 0], "view": "right"},
+    "hissing_roach": {"at": [3, 0], "view": "right"},
+    "brown_bat": {"at": [4, 0], "view": "right"},
+    "hatchling": {"at": [5, 0], "view": "right"},
+    "neuroprophet": {"at": [6, 0], "view": "right"},
+    "elder_sage": {"at": [7, 0], "view": "right"},
+    "pantheon": {"at": [0, 1], "view": "right"},
+    "council_mind": {"at": [1, 1], "view": "right"},
+    "overmind": {"at": [2, 1], "view": "right"},
+    "golden_roach": {"at": [3, 1], "view": "right"},
+    "bread_crumb": {"at": [4, 1], "view": "right"},
+    "territory_flag": {"at": [5, 1], "view": "right"},
+    "resin_drop": {"at": [6, 1], "view": "right"},
+    "mutagen_vial": {"at": [7, 1], "view": "right"},
+    "egg_case": {"at": [0, 2], "view": "right"},
+    "crumb_pile": {"at": [1, 2], "view": "right"}
+  }
+}

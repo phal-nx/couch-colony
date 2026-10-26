@@ -1,0 +1,117 @@
+{
+  "cell": 64,
+  "icons": {
+    "camel_cricket": {
+      "at": [
+        0,
+        0
+      ],
+      "view": "right"
+    },
+    "harvestman": {
+      "at": [
+        1,
+        0
+      ],
+      "view": "right"
+    },
+    "millipede": {
+      "at": [
+        2,
+        0
+      ],
+      "view": "right"
+    },
+    "bark_scorpion": {
+      "at": [
+        3,
+        0
+      ],
+      "view": "right"
+    },
+    "garden_snail": {
+      "at": [
+        0,
+        1
+      ],
+      "view": "right"
+    },
+    "woolly_bear": {
+      "at": [
+        1,
+        1
+      ],
+      "view": "right"
+    },
+    "red_flour_beetle": {
+      "at": [
+        2,
+        1
+      ],
+      "view": "right"
+    },
+    "carpet_beetle": {
+      "at": [
+        3,
+        1
+      ],
+      "view": "right"
+    },
+    "pantry_moth": {
+      "at": [
+        0,
+        2
+      ],
+      "view": "right"
+    },
+    "drain_fly": {
+      "at": [
+        1,
+        2
+      ],
+      "view": "right"
+    },
+    "rove_beetle": {
+      "at": [
+        2,
+        2
+      ],
+      "view": "right"
+    },
+    "mole_cricket": {
+      "at": [
+        3,
+        2
+      ],
+      "view": "right"
+    },
+    "velvet_mite": {
+      "at": [
+        0,
+        3
+      ],
+      "view": "right"
+    },
+    "antlion": {
+      "at": [
+        1,
+        3
+      ],
+      "view": "right"
+    },
+    "wheel_bug": {
+      "at": [
+        2,
+        3
+      ],
+      "view": "right"
+    },
+    "tardigrade": {
+      "at": [
+        3,
+        3
+      ],
+      "view": "right"
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "2": {
+    "action": "exec",
+    "command": "/bin/sh /var/lib/webosbrew/roach-colony/colony-key.sh 2 49"
+  },
+  "3": {
+    "action": "exec",
+    "command": "/bin/sh /var/lib/webosbrew/roach-colony/colony-key.sh 3 50"
+  },
+  "4": {
+    "action": "exec",
+    "command": "/bin/sh /var/lib/webosbrew/roach-colony/colony-key.sh 4 51"
+  },
+  "5": {
+    "action": "exec",
+    "command": "/bin/sh /var/lib/webosbrew/roach-colony/colony-key.sh 5 52"
+  },
+  "6": {
+    "action": "exec",
+    "command": "/bin/sh /var/lib/webosbrew/roach-colony/colony-key.sh 6 53"
+  },
+  "7": {
+    "action": "exec",
+    "command": "/bin/sh /var/lib/webosbrew/roach-colony/colony-key.sh 7 54"
+  },
+  "8": {
+    "action": "exec",
+    "command": "/bin/sh /var/lib/webosbrew/roach-colony/colony-key.sh 8 55"
+  },
+  "9": {
+    "action": "exec",
+    "command": "/bin/sh /var/lib/webosbrew/roach-colony/colony-key.sh 9 56"
+  },
+  "10": {
+    "action": "exec",
+    "command": "/bin/sh /var/lib/webosbrew/roach-colony/colony-key.sh 10 57"
+  },
+  "11": {
+    "action": "exec",
+    "command": "/bin/sh /var/lib/webosbrew/roach-colony/colony-key.sh 11 48"
+  },
+  "12": {
+    "action": "exec",
+    "command": "/bin/sh /var/lib/webosbrew/roach-colony/colony-key.sh 12 189"
+  },
+  "362": {
+    "action": "exec",
+    "command": "/bin/sh /var/lib/webosbrew/roach-colony/colony-key.sh 362 458"
+  },
+  "395": {
+    "action": "exec",
+    "command": "/bin/sh /var/lib/webosbrew/roach-colony/colony-key.sh 395 189"
+  },
+  "398": {
+    "action": "exec",
+    "command": "/bin/sh /var/lib/webosbrew/roach-colony/colony-key.sh 398 403"
+  },
+  "399": {
+    "action": "exec",
+    "command": "/bin/sh /var/lib/webosbrew/roach-colony/colony-key.sh 399 404"
+  },
+  "400": {
+    "action": "exec",
+    "command": "/bin/sh /var/lib/webosbrew/roach-colony/colony-key.sh 400 405"
+  },
+  "401": {
+    "action": "exec",
+    "command": "/bin/sh /var/lib/webosbrew/roach-colony/blue-toggle.sh"
+  }
+}

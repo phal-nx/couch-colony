@@ -1,0 +1,26 @@
+{
+  "name": "roach-colony",
+  "version": "0.4.15",
+  "private": true,
+  "description": "Transparent idle roach colony overlay for a rooted LG webOS TV.",
+  "license": "GPL-3.0-only",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "setup:engine": "npm ci --prefix scripts/build/engine-build",
+    "build": "node scripts/build/build-engine.cjs",
+    "preview": "python3 -m http.server 8765 --bind 127.0.0.1",
+    "test": "node --test tests/swarm-engine.cjs tests/save.cjs tests/reset.cjs tests/theme.cjs tests/mechanics.cjs tests/session.cjs",
+    "test:browser": "node tests/run-browser.cjs",
+    "test:habitat": "node tests/habitat.cjs && node tests/habitat-stress.cjs",
+    "probe:tv": "node scripts/tv/tv-probe.cjs",
+    "test:controller": "node tests/controller.cjs",
+    "test:nest": "node tests/nest-art.cjs",
+    "package": "rm -rf dist/tv-app && mkdir -p dist && rsync -a --exclude 'vivarium*' --exclude vendor app/ dist/tv-app/ && ares-package dist/tv-app --no-minify -o dist"
+  },
+  "devDependencies": {
+    "@webos-tools/cli": "3.2.6",
+    "playwright": "1.62.1"
+  }
+}

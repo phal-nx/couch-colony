@@ -1,0 +1,165 @@
+{
+  "canvas": [
+    300,
+    230
+  ],
+  "groundLineY": 205,
+  "entrance": [
+    269,
+    194
+  ],
+  "stages": [
+    {
+      "stage": 1,
+      "path": "stage-1.png",
+      "content": [
+        200,
+        183,
+        85,
+        22
+      ]
+    },
+    {
+      "stage": 2,
+      "path": "stage-2.png",
+      "content": [
+        145,
+        153,
+        140,
+        52
+      ]
+    },
+    {
+      "stage": 3,
+      "path": "stage-3.png",
+      "content": [
+        75,
+        106,
+        210,
+        99
+      ]
+    },
+    {
+      "stage": 4,
+      "path": "stage-4.png",
+      "content": [
+        25,
+        79,
+        260,
+        126
+      ]
+    },
+    {
+      "stage": 5,
+      "path": "stage-5.png",
+      "content": [
+        5,
+        22,
+        280,
+        183
+      ]
+    },
+    {
+      "stage": 6,
+      "path": "stage-6.png",
+      "content": [
+        5,
+        17,
+        280,
+        188
+      ]
+    }
+  ],
+  "overlays": [
+    {
+      "name": "eggs-small",
+      "path": "overlays/eggs-small.png",
+      "x": 103,
+      "y": 175,
+      "width": 14,
+      "height": 10,
+      "anchorStage": 4,
+      "exclusiveGroup": "eggs"
+    },
+    {
+      "name": "eggs-medium",
+      "path": "overlays/eggs-medium.png",
+      "x": 99,
+      "y": 174,
+      "width": 22,
+      "height": 13,
+      "anchorStage": 4,
+      "exclusiveGroup": "eggs"
+    },
+    {
+      "name": "eggs-large",
+      "path": "overlays/eggs-large.png",
+      "x": 95,
+      "y": 173,
+      "width": 30,
+      "height": 14,
+      "anchorStage": 4,
+      "exclusiveGroup": "eggs"
+    },
+    {
+      "name": "nexus",
+      "path": "overlays/nexus.png",
+      "x": 181,
+      "y": 131,
+      "width": 22,
+      "height": 19,
+      "anchorStage": 4,
+      "exclusiveGroup": null
+    },
+    {
+      "name": "pennant",
+      "path": "overlays/pennant.png",
+      "x": 148,
+      "y": 49,
+      "width": 25,
+      "height": 32,
+      "anchorStage": 4,
+      "exclusiveGroup": null
+    },
+    {
+      "name": "crumbs-small",
+      "path": "overlays/crumbs-small.png",
+      "x": 71,
+      "y": 145,
+      "width": 11,
+      "height": 8,
+      "anchorStage": 4,
+      "exclusiveGroup": "crumbs"
+    },
+    {
+      "name": "crumbs-medium",
+      "path": "overlays/crumbs-medium.png",
+      "x": 66,
+      "y": 145,
+      "width": 20,
+      "height": 9,
+      "anchorStage": 4,
+      "exclusiveGroup": "crumbs"
+    },
+    {
+      "name": "crumbs-large",
+      "path": "overlays/crumbs-large.png",
+      "x": 62,
+      "y": 143,
+      "width": 28,
+      "height": 12,
+      "anchorStage": 4,
+      "exclusiveGroup": "crumbs"
+    },
+    {
+      "name": "side-tunnel-annex",
+      "path": "overlays/side-tunnel-annex.png",
+      "x": 3,
+      "y": 179,
+      "width": 55,
+      "height": 23,
+      "anchorStage": 4,
+      "exclusiveGroup": null
+    }
+  ]
+}

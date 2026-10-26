@@ -1,0 +1,19 @@
+{
+  "id": "com.phil.roachcolony",
+  "version": "0.4.15",
+  "vendor": "Phil's TV experiments",
+  "type": "web",
+  "main": "index.html",
+  "title": "Roach Colony",
+  "appDescription": "A transparent perimeter colony that grows only while visible. Blue shows/hides, Red forages, Green repeats purchases, Yellow opens menus.",
+  "icon": "icon.png",
+  "largeIcon": "icon.png",
+  "transparent": true,
+  "defaultWindowType": "overlay",
+  "handlesRelaunch": true,
+  "noSplashOnLaunch": true,
+  "spinnerOnLaunch": false,
+  "requiredACG": [],
+  "disableBackHistoryAPI": true,
+  "resolution": "1920x1080"
+}
