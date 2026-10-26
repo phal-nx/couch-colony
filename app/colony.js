@@ -750,7 +750,7 @@
     var vis = habitat ? habitat.diagnostics() : null;
     return {
       format: 'roach-colony-diagnostics',
-      version: snapshot && snapshot.coverage && snapshot.coverage.sourceCommit ? snapshot.coverage.sourceCommit : '0.4.15',
+      version: snapshot && snapshot.coverage && snapshot.coverage.sourceCommit ? snapshot.coverage.sourceCommit : '0.4.16',
       uptimeSeconds: Math.round((Date.now() - started) / 1000),
       display: !compact ? 'full' : critters ? 'critters' : watchMode ? 'watch' : 'compact',
       standalone: standalone,

@@ -1,6 +1,6 @@
 {
   "id": "com.phil.roachcolony",
-  "version": "0.4.15",
+  "version": "0.4.16",
   "vendor": "Phil's TV experiments",
   "type": "web",
   "main": "index.html",
