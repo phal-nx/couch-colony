@@ -12,7 +12,7 @@ This directory contains the installable webOS application (`com.phil.roachcolony
 ## Module Boundaries & Seams
 
 1. **`app/theme.js` (`window.RoachTheme`)**:
-   - Owns all Swarm Simulator → Roach Colony naming (`label`, `plural`, `upgradeLabel`, `achievementLabel`, `tabLabel`, `costText`, `text`, `effectText`, `upgradeText`) and all number/progress formatting (`short`, `whole`, `shortNumbers`, `compact`, `magnitude`, `partProgress`, `itemProgress`).
+   - Owns all Swarm Simulator → Couch Colony naming (`label`, `plural`, `upgradeLabel`, `achievementLabel`, `tabLabel`, `costText`, `text`, `effectText`, `upgradeText`) and all number/progress formatting (`short`, `whole`, `shortNumbers`, `compact`, `magnitude`, `partProgress`, `itemProgress`).
    - Do not duplicate regex number formatting or `Math.log10` string parsing in UI modules; call `RoachTheme`.
    - Never pass colony prose that already uses the word "nest" as a home (`"Ascend the colony?"`, `"The colony smells faintly of victory."`) through `theme.text()`, because `theme.text()` translates upstream `nest` to `brood mother`.
 

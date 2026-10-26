@@ -1,5 +1,5 @@
 #!/bin/sh
-# Starts, stops and supervises the Roach Colony phone controller bridge on the TV.
+# Starts, stops and supervises the Couch Colony phone controller bridge on the TV.
 # Runs as root from webosbrew init.d; never touches the game, its saves or Home.
 DIR=$(cd "$(dirname "$0")" && pwd)
 RUN=${ROACH_CONTROLLER_RUN:-/tmp/roach-colony-controller}

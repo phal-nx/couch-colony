@@ -1,4 +1,4 @@
-# Roach Colony
+# Couch Colony
 
 A transparent idle game overlay for a rooted LG webOS TV (`com.phil.roachcolony`) with a LAN phone controller bridge. The economy is adapted from the pinned GPL-3.0 Swarm Simulator engine; visible-time chance mechanics, cutaway nest progression, and edge-hugging roach simulation live beside it.
 

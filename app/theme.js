@@ -152,7 +152,7 @@
     'Build your fourth nexus, generating even more energy and unlocking some of the most advanced spells available to your swarm.': 'Build your fourth nexus, generating even more energy and unlocking some of the most advanced abilities available to your colony.',
     'Build your fifth and final nexus. All spells and abilities are unlocked. Your spellcasters cannot channel energy from more than five nexus; this is the limit of their power.': 'Build your fifth and final nexus. All abilities are unlocked. Your colony cannot channel energy from more than five nexuses; this is the limit of its power.',
     // Tutorial hints whose wording or directions belonged to the original web game's screens.
-    'Welcome to Swarm Simulator.': 'Welcome to Roach Colony.',
+    'Welcome to Swarm Simulator.': 'Welcome to Couch Colony.',
     'Starting with just a few larvae and a small pile of meat, grow a massive swarm of giant bugs.': 'From a few crumbs and hatchlings, grow a sprawling colony of roaches.',
     'Your brood starts its life with a small pile of meat and a single larva-producing hatchery.': 'Your brood starts its life with one egg chamber, where hatchlings are born.',
     'Larvae mutate into other units.': 'Hatchlings grow into every other kind of roach.',

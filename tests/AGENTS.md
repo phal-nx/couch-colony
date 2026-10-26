@@ -1,6 +1,6 @@
 # `tests/` Agent Instructions (Test Suites & Verification Harnesses)
 
-All tests in Roach Colony run locally in Node.js (`>= 20`) and headless Google Chrome via Playwright. **Tests must never contact the TV (`192.168.1.86`).**
+All tests in Couch Colony run locally in Node.js (`>= 20`) and headless Google Chrome via Playwright. **Tests must never contact the TV (`192.168.1.86`).**
 
 ## Test Suites & When to Run Them
 

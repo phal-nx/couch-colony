@@ -79,7 +79,7 @@ async function fixture(browser, init, icons) {
   await actual.locator('#close').click();
   await actual.screenshot({path:path.join(screenshotDir,'compact.png')});
   await actual.locator('#plus').click();assert.equal(await actual.evaluate(() => colonyDiagnostics().compact),false);
-  assert.equal(await actual.locator('h1').textContent(),'Roach Colony');
+  assert.equal(await actual.locator('h1').textContent(),'Couch Colony');
   assert.doesNotMatch(await actual.locator('#colony').textContent(),/HDMI|bezel/i);
   assert.ok(await actual.locator('#colony').evaluate(e => {var r=e.getBoundingClientRect();return r.width<=570&&r.height<=608;}));
   assert.ok(await actual.locator('#items article').count()>0);

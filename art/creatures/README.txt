@@ -1,4 +1,4 @@
-Roach Colony pixel-art habitat pack
+Couch Colony pixel-art habitat pack
 ==================================
 
 Generated with built-in imagegen; exact generation prompts are included.

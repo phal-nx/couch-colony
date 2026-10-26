@@ -951,7 +951,7 @@ function ownedOf(result, id) {
       const listing = await client.fresh();
       assert.deepEqual([listing.data.dormant, listing.data.goal, listing.data.leader], [true, goal, null]);
       // The colony screen carries the TV's key 0 hint: the original tutorial step and the next goal.
-      assert.match(listing.data.hint.text, /^Welcome to Roach Colony\. From a few crumbs and hatchlings/);
+      assert.match(listing.data.hint.text, /^Welcome to Couch Colony\. From a few crumbs and hatchlings/);
       assert.equal(listing.data.hint.goal, goal);
       // The colony screen's refresh can still be in flight. Wait for the upgrades view itself.
       const switched = client.next(message => message.t === 'state' && !message.stale && message.data && message.data.list === 'upgrade');
@@ -971,7 +971,7 @@ function ownedOf(result, id) {
       assert.equal(await handset.locator('#leader').isHidden(), true);
       assert.deepEqual([await handset.locator('#hint').isVisible(), await handset.locator('#hint-body').isVisible()], [true, false], 'the hint waits folded');
       await handset.locator('#hint-toggle').click();
-      assert.match(await handset.locator('#hint-text').textContent(), /^Welcome to Roach Colony\./);
+      assert.match(await handset.locator('#hint-text').textContent(), /^Welcome to Couch Colony\./);
       assert.equal(await handset.locator('#hint-goal').isHidden(), true, 'the goal card above already says it');
       await handset.screenshot({path: path.join(out, 'phone-390x844-dormant.png')});
       // Nine more forages afford the first forager, which wakes the nest; the goal gives way to the leader card.

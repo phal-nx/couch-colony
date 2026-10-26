@@ -110,7 +110,7 @@ test('existing callers keep their contract for unknown ids',()=>{
   assert.equal(T.tabLabel('meat','meat'),'Roaches');assert.equal(T.tabLabel('unknown','Other'),'Other');
 });
 
-test('tutorial hints read as Roach Colony and point at its own menus',()=>{
+test('tutorial hints read as Couch Colony and point at its own menus',()=>{
   const at=(counts,upgrades)=>{const game=new E.Game({now:1e6}),state=game.exportState(1e6);Object.assign(state.state.unittypes,counts);Object.assign(state.state.upgrades,upgrades||{});state.opening={awake:true};game.importState(state,1e6);return game.snapshot(1e6,{includeItems:false,includeAchievements:false,includeHint:true}).hint;};
   const hints=[new E.Game({now:1e6}).snapshot(1e6,{includeHint:true}).hint,at({drone:'3'}),at({drone:'10'}),at({drone:'10',meat:'300'}),at({drone:'10'},{hatchery:'1'}),at({queen:'1'},{hatchery:'1'}),at({queen:'5'},{hatchery:'1'}),at({queen:'5',territory:'3'},{hatchery:'1'}),at({queen:'5',territory:'10'},{hatchery:'1'}),at({queen:'50'},{expansion:'2'}),at({queen:'50'},{expansion:'6'}),at({nexus:'1',energy:'5'},{expansion:'6',nexus1:'1'}),at({premutagen:'5'}),at({ascension:'1'}),at({ascension:'2'})];
   assert.equal(new Set(hints.map(entry=>entry.step)).size,15,'every step is covered');
@@ -120,7 +120,7 @@ test('tutorial hints read as Roach Colony and point at its own menus',()=>{
     assert.equal(T.text(themed),themed,'text() is idempotent: '+themed);
   });
   assert.equal(T.text(hints[4].text),'You lead a small brood of forager roaches. They long for a nest queen. You must sacrifice many forager roaches to hatch a nest queen, but once born, your nest queen will slowly hatch forager roaches without consuming crumbs or hatchlings.');
-  assert.match(T.text(hints[0].text),/^Welcome to Roach Colony\. /);
+  assert.match(T.text(hints[0].text),/^Welcome to Couch Colony\. /);
   assert.equal(T.text(hints[3].text),'You have enough crumbs to upgrade your egg chamber. Find it under Upgrades, in the Brood tab.');
 });
 

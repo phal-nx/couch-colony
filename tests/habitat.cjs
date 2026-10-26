@@ -404,7 +404,7 @@ const colourDistance = (a, b) => Math.hypot(a[0]-b[0], a[1]-b[1], a[2]-b[2]);
     const ev = await browser.newPage({viewport:{width:1920,height:1080}});
     const evErrors = [];
     ev.on('pageerror', error => evErrors.push(error.message));
-    await ev.setContent('<style>html,body{margin:0;height:100%;background:linear-gradient(160deg,#3a3f47,#5a5a5a 55%,#2d3036)}canvas{position:fixed;left:0;top:0;width:100%;height:100%}#panel{position:fixed;right:24px;bottom:24px;width:480px;height:150px;background:rgba(14,12,10,.72);border-radius:12px;color:#eee;font:24px sans-serif;padding:16px;box-sizing:border-box}</style><canvas></canvas><div id="panel">Roach Colony</div>');
+    await ev.setContent('<style>html,body{margin:0;height:100%;background:linear-gradient(160deg,#3a3f47,#5a5a5a 55%,#2d3036)}canvas{position:fixed;left:0;top:0;width:100%;height:100%}#panel{position:fixed;right:24px;bottom:24px;width:480px;height:150px;background:rgba(14,12,10,.72);border-radius:12px;color:#eee;font:24px sans-serif;padding:16px;box-sizing:border-box}</style><canvas></canvas><div id="panel">Couch Colony</div>');
     await addHabitat(ev);
     const shoot = name => ev.screenshot({path:path.join(output, name)});
     const events = await ev.evaluate(() => {
@@ -596,7 +596,7 @@ const colourDistance = (a, b) => Math.hypot(a[0]-b[0], a[1]-b[1], a[2]-b[2]);
     const bh = await browser.newPage({viewport:{width:1920,height:1080}});
     const bhErrors = [];
     bh.on('pageerror', error => bhErrors.push(error.message));
-    await bh.setContent('<style>html,body{margin:0;height:100%;background:linear-gradient(160deg,#3a3f47,#5a5a5a 55%,#2d3036)}canvas{position:fixed;left:0;top:0;width:100%;height:100%}#panel{position:fixed;right:24px;bottom:24px;width:480px;height:150px;background:rgba(14,12,10,.72);border-radius:12px;color:#eee;font:24px sans-serif;padding:16px;box-sizing:border-box}</style><canvas></canvas><div id="panel">Roach Colony</div>');
+    await bh.setContent('<style>html,body{margin:0;height:100%;background:linear-gradient(160deg,#3a3f47,#5a5a5a 55%,#2d3036)}canvas{position:fixed;left:0;top:0;width:100%;height:100%}#panel{position:fixed;right:24px;bottom:24px;width:480px;height:150px;background:rgba(14,12,10,.72);border-radius:12px;color:#eee;font:24px sans-serif;padding:16px;box-sizing:border-box}</style><canvas></canvas><div id="panel">Couch Colony</div>');
     for (const name of ['nest-sprites.js', 'nest-art.js', 'critters.js']) await bh.addScriptTag({path:path.resolve(__dirname, '../app', name)});
     await addHabitat(bh);
     const enlarge = async (point, name, size = 160) => {
@@ -851,7 +851,7 @@ const colourDistance = (a, b) => Math.hypot(a[0]-b[0], a[1]-b[1], a[2]-b[2]);
     const qa = await browser.newPage({viewport:{width:1920,height:1080}});
     const qaErrors = [];
     qa.on('pageerror', error => qaErrors.push(error.message));
-    await qa.setContent('<style>html,body{margin:0;height:100%;background:linear-gradient(160deg,#4a4f57,#707070 55%,#3d4046)}canvas{position:fixed;left:0;top:0;width:100%;height:100%}#panel{position:fixed;right:24px;bottom:24px;background:rgba(14,12,10,.72);border-radius:12px;color:#eee;font:24px sans-serif;padding:16px;box-sizing:border-box}</style><canvas></canvas><div id="panel">Roach Colony</div>');
+    await qa.setContent('<style>html,body{margin:0;height:100%;background:linear-gradient(160deg,#4a4f57,#707070 55%,#3d4046)}canvas{position:fixed;left:0;top:0;width:100%;height:100%}#panel{position:fixed;right:24px;bottom:24px;background:rgba(14,12,10,.72);border-radius:12px;color:#eee;font:24px sans-serif;padding:16px;box-sizing:border-box}</style><canvas></canvas><div id="panel">Couch Colony</div>');
     await addHabitat(qa);
     const qaStats = {};
     for (const [name, snapshot, panel] of [['early', early, [480,150]], ['late', everything, [560,600]]]) {
@@ -983,7 +983,7 @@ const colourDistance = (a, b) => Math.hypot(a[0]-b[0], a[1]-b[1], a[2]-b[2]);
     const art = await browser.newPage({viewport:{width:1920,height:1080}});
     const artErrors = [];
     art.on('pageerror', error => artErrors.push(error.message));
-    await art.setContent('<style>html,body{margin:0;height:100%;background:linear-gradient(160deg,#2c3036,#45474c 55%,#25282d)}canvas{position:fixed;left:0;top:0;width:100%;height:100%}#panel{position:fixed;right:24px;bottom:24px;width:480px;height:150px;background:rgba(14,12,10,.72);border-radius:12px;color:#eee;font:24px sans-serif;padding:16px;box-sizing:border-box}</style><canvas></canvas><div id="panel">Roach Colony</div>');
+    await art.setContent('<style>html,body{margin:0;height:100%;background:linear-gradient(160deg,#2c3036,#45474c 55%,#25282d)}canvas{position:fixed;left:0;top:0;width:100%;height:100%}#panel{position:fixed;right:24px;bottom:24px;width:480px;height:150px;background:rgba(14,12,10,.72);border-radius:12px;color:#eee;font:24px sans-serif;padding:16px;box-sizing:border-box}</style><canvas></canvas><div id="panel">Couch Colony</div>');
     for (const name of ['nest-sprites.js', 'nest-art.js', 'critters.js']) await art.addScriptTag({path:path.resolve(__dirname, '../app', name)});
     await addHabitat(art);
     const sprites = await art.evaluate(() => {
@@ -1524,7 +1524,7 @@ const colourDistance = (a, b) => Math.hypot(a[0]-b[0], a[1]-b[1], a[2]-b[2]);
     const lanes = await browser.newPage({viewport:{width:1920,height:1080}});
     const laneErrors = [];
     lanes.on('pageerror', error => laneErrors.push(error.message));
-    await lanes.setContent('<style>html,body{margin:0;height:100%;background:linear-gradient(160deg,#2c3036,#45474c 55%,#25282d)}canvas{position:fixed;left:0;top:0;width:100%;height:100%}#panel{position:fixed;right:24px;bottom:24px;width:480px;height:150px;background:rgba(14,12,10,.72);border-radius:12px;color:#eee;font:24px sans-serif;padding:16px;box-sizing:border-box}</style><canvas></canvas><div id="panel">Roach Colony</div>');
+    await lanes.setContent('<style>html,body{margin:0;height:100%;background:linear-gradient(160deg,#2c3036,#45474c 55%,#25282d)}canvas{position:fixed;left:0;top:0;width:100%;height:100%}#panel{position:fixed;right:24px;bottom:24px;width:480px;height:150px;background:rgba(14,12,10,.72);border-radius:12px;color:#eee;font:24px sans-serif;padding:16px;box-sizing:border-box}</style><canvas></canvas><div id="panel">Couch Colony</div>');
     for (const name of ['nest-sprites.js', 'nest-art.js', 'critters.js']) await lanes.addScriptTag({path:path.resolve(__dirname, '../app', name)});
     await addHabitat(lanes);
     // A 4x enlargement of a square around a point of the habitat, which draws at 1:1 at 1080p.

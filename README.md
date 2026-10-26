@@ -1,9 +1,9 @@
-# Roach Colony
+# Couch Colony
 
 **An idle game that lives on the edges of your LG TV while you watch something else.**
 
-Roach Colony is a transparent idle game overlay (an incremental game) for rooted LG webOS
-TVs. A colony of pixel-art cockroaches forages, digs a nest and claims territory along the
+Couch Colony is a transparent idle game overlay (an incremental game) for rooted LG webOS
+TVs. A colony of pixel-art bugs forages, digs a nest and claims territory along the
 borders of the screen, on top of YouTube, Netflix, live TV or whatever else is playing. The
 centre of the picture stays clear. You grow the colony with the coloured buttons on the TV
 remote, or from your phone. Its economy is a full port of the open-source
@@ -13,7 +13,7 @@ few crumbs to numbers like 10^70 and beyond.
 It runs as a homebrew web app through the webOS Homebrew Channel, and it was built and
 tested on an LG CX OLED (webOS 5.6.2).
 
-![Roach Colony on a TV: roaches walk the screen edges, a pixel-art nest sits in the bottom-left corner, and the colony's stock and quick-buy strip sit in the bottom-right corner over a simulated video backdrop](docs/images/tv-overlay.jpg)
+![Couch Colony on a TV: roaches walk the screen edges, a pixel-art nest sits in the bottom-left corner, and the colony's stock and quick-buy strip sit in the bottom-right corner over a simulated video backdrop](docs/images/tv-overlay.jpg)
 
 ## Features
 
@@ -24,7 +24,8 @@ tested on an LG CX OLED (webOS 5.6.2).
   picks. You never need a keyboard.
 - **The whole Swarm Simulator economy.** It has 58 unit types, 88 upgrades and abilities,
   more than a hundred achievements, energy, territory and ascension with mutagen,
-  translated into a cockroach theme.
+  translated into a bug-colony theme (the castes are roaches, with beetles, spiders and other
+visitors along the way).
 - **Progress only while it is on screen.** The colony grows only while you can see it.
   Hiding it pauses everything, so it never nags you and never rewards leaving the TV on.
 - **A living habitat.** Up to 64 representative roaches walk in lanes, carry crumbs home,
@@ -234,10 +235,10 @@ the bridge never writes its save.
   (MIT).
 - The full list is in [app/THIRD_PARTY.md](app/THIRD_PARTY.md).
 
-Roach Colony is free software under the [GNU GPL v3](LICENSE).
+Couch Colony is free software under the [GNU GPL v3](LICENSE).
 
 ---
 
 *Keywords: LG webOS homebrew game, rooted LG TV, webOS overlay app, idle game for TV,
 incremental game, Swarm Simulator port, LG CX OLED, webosbrew, RootMyTV, Input Hook,
-TV remote game, ambient game, desktop pet for TV, pixel art cockroach game.*
+TV remote game, ambient game, desktop pet for TV, pixel art bug colony game.*

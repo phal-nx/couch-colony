@@ -1,4 +1,4 @@
-# Roach Colony agent instructions
+# Couch Colony agent instructions
 
 If `AGENTS.local.md` exists, read it first. It holds the owner's own rules and TV details and is not published.
 
@@ -10,7 +10,7 @@ Before changing architecture, UI, balance, or controller code, read the relevant
 - [`docs/design.md`](./docs/design.md): System topology, script load order, deep modules and seams, and TV/Chromium 68 performance invariants.
 - [`docs/balance.md`](./docs/balance.md): Active-time economy adjustments (`applyActiveBalance`), chance event reward tables, optimal energy spending math, and milestone timings.
 - [`docs/ui-spec.md`](./docs/ui-spec.md): Visual and interaction contract for the TV overlay, habitat, and phone controller.
-- [`docs/naming.md`](./docs/naming.md): Swarm Simulator to Roach Colony translation table.
+- [`docs/naming.md`](./docs/naming.md): Swarm Simulator to Couch Colony translation table.
 - Nested directory guides: [`app/AGENTS.md`](./app/AGENTS.md), [`app/swarm/AGENTS.md`](./app/swarm/AGENTS.md), [`phone-controller/AGENTS.md`](./phone-controller/AGENTS.md), [`tests/AGENTS.md`](./tests/AGENTS.md).
 
 ## TV and playback
@@ -64,7 +64,7 @@ Before changing architecture, UI, balance, or controller code, read the relevant
 - The UI design contract and its priorities are in `docs/ui-spec.md`; read it
   before UI, habitat or phone work.
 
-- Call it **Roach Colony**, never HDMI Nest.
+- Call it **Couch Colony**, never HDMI Nest.
 - Keep controls transparent, legible from the couch, and near the bottom-right.
   Compact width is 480px; management width is 560px with four dense rows.
 - Keep the center of the video clear. Roaches and territory occupy screen edges.

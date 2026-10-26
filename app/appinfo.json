@@ -4,7 +4,7 @@
   "vendor": "Phil's TV experiments",
   "type": "web",
   "main": "index.html",
-  "title": "Roach Colony",
+  "title": "Couch Colony",
   "appDescription": "A transparent perimeter colony that grows only while visible. Blue shows/hides, Red forages, Green repeats purchases, Yellow opens menus.",
   "icon": "icon.png",
   "largeIcon": "icon.png",

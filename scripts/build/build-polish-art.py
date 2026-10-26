@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Normalize the generated source sheets in art/source/colony-polish-2026-10-21/
-into native binary-alpha pixel art assets for Roach Colony:
+into native binary-alpha pixel art assets for Couch Colony:
 
 1. control_status_source.png (1254x1254, 4x4):
    - Row 0: 16x8 remote button capsules -> app/ui-art/capsule_{red,green,yellow,blue}.png

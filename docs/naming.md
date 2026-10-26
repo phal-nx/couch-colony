@@ -1,6 +1,6 @@
-# Roach Colony naming
+# Couch Colony naming
 
-Roach Colony runs the Swarm Simulator economy unchanged. Only the words change, and
+Couch Colony runs the Swarm Simulator economy unchanged. Only the words change, and
 they all change in `app/theme.js`. Source ids, costs, saves and the pinned source tree
 stay exactly as upstream wrote them. This page records what the player reads, what it
 used to say, and why.

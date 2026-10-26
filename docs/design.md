@@ -1,19 +1,19 @@
-# Roach Colony architecture and design
+# Couch Colony architecture and design
 
-This document is the architectural map for Roach Colony (`com.phil.roachcolony`). It explains how the modules fit together, what sits behind each seam, how the two-speed TV tick and 30 fps habitat renderer stay within the LG OLED55CXPUA's Chromium 68 budget, and how the TV and LAN phone controller share state without duplicating domain rules.
+This document is the architectural map for Couch Colony (`com.phil.roachcolony`). It explains how the modules fit together, what sits behind each seam, how the two-speed TV tick and 30 fps habitat renderer stay within the LG OLED55CXPUA's Chromium 68 budget, and how the TV and LAN phone controller share state without duplicating domain rules.
 
 Read this alongside:
 - [`AGENTS.md`](./AGENTS.md): TV safety rules, runtime targets, and verification workflows.
 - [`docs/glossary.md`](./docs/glossary.md): Canonical domain vocabulary (`Dormant Opening`, `Main Chain`, `Territory Critter`, `Red Target`, `Seat`, `Lane Manners`, `Trusted Slot Cache`, `Overlay Meta`).
 - [`docs/balance.md`](./docs/balance.md): Active-time economy curves, chance event payouts, and pacing mechanics.
 - [`docs/ui-spec.md`](./docs/ui-spec.md): Visual and interaction specification for the TV overlay, habitat, and phone controller.
-- [`docs/naming.md`](./docs/naming.md): Swarm Simulator to Roach Colony translation table.
+- [`docs/naming.md`](./docs/naming.md): Swarm Simulator to Couch Colony translation table.
 
 ---
 
 ## 1. System Topology & Script Load Order
 
-Roach Colony runs as a zero-dependency browser application (`app/index.html`) in Chromium 68 on webOS 5.6.2, paired over loopback WebSocket (`127.0.0.1:8643`) to a local Node 8.12 relay bridge (`phone-controller/bridge.js`) that serves paired phones on LAN (`:8642`).
+Couch Colony runs as a zero-dependency browser application (`app/index.html`) in Chromium 68 on webOS 5.6.2, paired over loopback WebSocket (`127.0.0.1:8643`) to a local Node 8.12 relay bridge (`phone-controller/bridge.js`) that serves paired phones on LAN (`:8642`).
 
 ```text
 +-----------------------------------------------------------------------------------+
@@ -124,7 +124,7 @@ Every pure or headless module (`engine.js`, `save.js`, `theme.js`, `reset.js`, `
   - Sanitization of optional `visitors` and `catches` (`golden` and `intruders` tallies) in exported/imported JSON envelopes.
 
 ### 2.4 `RoachTheme` (`app/theme.js`)
-- **Role**: Single source of truth for Roach Colony terminology, pluralization, regex prose rewriting, and 3-significant-figure / log-10 number formatting across both the TV and the phone controller.
+- **Role**: Single source of truth for Couch Colony terminology, pluralization, regex prose rewriting, and 3-significant-figure / log-10 number formatting across both the TV and the phone controller.
 - **Interface**:
   - Naming: `label`, `plural`, `upgradeLabel`, `achievementLabel`, `tabLabel`, `costText`, `text`, `source`, `effectText`, `upgradeText`
   - Numbers & Progress: `short`, `whole`, `shortNumbers`, `compact`, `magnitude`, `partProgress`, `itemProgress`

@@ -9,7 +9,7 @@ const base = process.env.ROACH_PREVIEW_URL || 'http://127.0.0.1:8765/app/';
 const shots = path.resolve('work/hint');
 fs.mkdirSync(shots, {recursive: true});
 
-const FIRST = 'Welcome to Roach Colony. From a few crumbs and hatchlings, grow a sprawling colony of roaches.';
+const FIRST = 'Welcome to Couch Colony. From a few crumbs and hatchlings, grow a sprawling colony of roaches.';
 const GOAL = 'Next goal: Press Red to forage. Gather 10 crumbs and 1 hatchling for your first forager roach.';
 
 (async () => {

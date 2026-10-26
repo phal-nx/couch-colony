@@ -1,12 +1,12 @@
-# Roach Colony economy and active-play balance
+# Couch Colony economy and active-play balance
 
-This document records how Roach Colony adapts the pinned upstream Swarm Simulator economy (`06b4f404aa324a0b454348508cfa63d5c0f1ff54`) for an **active-time TV overlay** where time advances only while the game is visible on screen (`Active-Time Policy`, zero offline progress).
+This document records how Couch Colony adapts the pinned upstream Swarm Simulator economy (`06b4f404aa324a0b454348508cfa63d5c0f1ff54`) for an **active-time TV overlay** where time advances only while the game is visible on screen (`Active-Time Policy`, zero offline progress).
 
 ---
 
 ## 1. Core Balance Philosophy
 
-Upstream Swarm Simulator was tuned for multi-day background/offline play, where a first ascension takes roughly 190 hours of wall time. Because Roach Colony pauses whenever hidden with Blue and grants zero offline catch-up:
+Upstream Swarm Simulator was tuned for multi-day background/offline play, where a first ascension takes roughly 190 hours of wall time. Because Couch Colony pauses whenever hidden with Blue and grants zero offline catch-up:
 1. **Early progression (Minutes 0–45)** keeps upstream's tight feedback loop after a Cookie Clicker-style **Dormant Opening**.
 2. **Mid-to-late tiers, Crevices, Nexuses 4–5, Mutagen gates, and Ascension cost (`applyActiveBalance` in `app/swarm/adapter.js`)** are pulled in so a first ascension lands around **14–17 visible hours** (with engaged active play and upgrades) and **~25–30 visible hours** without unit upgrades.
 3. **Visible-time chance mechanics (`app/mechanics.js`)** reward couch attention (Red button catches, Intruder repels, Night shift) with bounded seconds of current production without ever punishing idle watching.
@@ -28,7 +28,7 @@ A brand-new colony starts with `0` Crumbs (`meat`), `0` Hatchlings (`larva`), an
 
 Applied in `app/swarm/adapter.js` whenever `activeTimeOnly: true` is active:
 
-| Parameter | Upstream Swarm Simulator | Roach Colony (`activeTimeOnly`) | Reason |
+| Parameter | Upstream Swarm Simulator | Couch Colony (`activeTimeOnly`) | Reason |
 | :--- | :--- | :--- | :--- |
 | **Main-chain tiers 1–4** (`drone`..`greaterqueen`) | Base costs & output | Unchanged | Preserves the classic opening and first 45 minutes |
 | **Main-chain tiers 5–20** (`hive`..`overmind6`) lower-tier unit sacrifice cost | `1.0×` spreadsheet cost | Tier 5: `0.40×`<br>Tier 6: `0.35×`<br>Tier 7: `0.30×`<br>Tier 8+: `0.25×` | Prevents multi-day promotion walls without offline time |

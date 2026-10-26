@@ -1,4 +1,4 @@
-# Roach Colony UI specification
+# Couch Colony UI specification
 
 This is the design contract for the TV overlay, the habitat, and the phone
 controller. It records what the design asks for and what to protect when the two
@@ -579,7 +579,7 @@ these files, so it is only for before real art exists.
 - The bridge runs on the TV, starts at boot, and serves the phone page on the
   local network. One household, one or two phones. No laptop, no internet.
 - The page can be added to the iPhone Home Screen and opens full screen as
-  "Roach Colony", with a pixel-art roach icon drawn by
+  "Couch Colony", with a pixel-art roach icon drawn by
   `scripts/build/build-phone-icons.py`, a translucent status bar over the ground colour,
   and safe-area padding so the thumb-zone buttons stay clear of the home
   indicator. There is no service worker, because plain HTTP cannot register one.

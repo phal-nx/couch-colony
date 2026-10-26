@@ -1,8 +1,8 @@
 {
-  "name": "roach-colony",
+  "name": "couch-colony",
   "version": "0.4.16",
   "private": true,
-  "description": "Transparent idle roach colony overlay for a rooted LG webOS TV.",
+  "description": "Transparent idle bug colony overlay for a rooted LG webOS TV.",
   "license": "GPL-3.0-only",
   "engines": {
     "node": ">=20"

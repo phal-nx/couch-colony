@@ -1,4 +1,4 @@
-/* Roach Colony phone controller. The TV game is the only authority: this page
+/* Couch Colony phone controller. The TV game is the only authority: this page
    shows its latest snapshot and sends single commands, never queued ones.
    Counts arrive as formatted strings; progress and ETAs are display estimates
    computed in log space, never exact arithmetic on colony counts. */

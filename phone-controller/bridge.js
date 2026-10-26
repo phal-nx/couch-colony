@@ -1,5 +1,5 @@
 'use strict';
-// Roach Colony phone controller bridge. Runs as root on the TV under Node 8.12.
+// Couch Colony phone controller bridge. Runs as root on the TV under Node 8.12.
 // It relays a fixed set of colony operations between paired phones and the
 // game page. It never simulates the colony, never writes the colony save and
 // never runs anything except luna-send to launch this one app.

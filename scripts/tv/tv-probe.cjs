@@ -200,8 +200,8 @@ async function connect() {
   const response = await fetch(`${base}/json`, {signal:AbortSignal.timeout(5000)});
   if (!response.ok) throw new Error(`${base}/json answered ${response.status}`);
   const targets = await response.json();
-  const target = targets.find(item => item.type === 'page' && (item.title === 'Roach Colony' || String(item.url).includes('com.phil.roachcolony')));
-  if (!target) throw new Error(`no Roach Colony page among ${targets.length} target(s): ${targets.map(item => JSON.stringify(item.title)).join(', ')}`);
+  const target = targets.find(item => item.type === 'page' && (item.title === 'Couch Colony' || String(item.url).includes('com.phil.roachcolony')));
+  if (!target) throw new Error(`no Couch Colony page among ${targets.length} target(s): ${targets.map(item => JSON.stringify(item.title)).join(', ')}`);
   // Older webOS builds omit the socket URL or report a loopback host, so derive it from the requested address.
   const path = target.webSocketDebuggerUrl ? new URL(target.webSocketDebuggerUrl).pathname : `/devtools/page/${target.id}`;
   if (typeof WebSocket !== 'function') throw new Error('this Node.js has no global WebSocket; use Node.js 22 or newer');
@@ -294,7 +294,7 @@ const mb = bytes => `${(bytes / 1048576).toFixed(1)} MB`;
 function print(report) {
   const lines = [];
   const habitat = report.habitat;
-  lines.push(`Roach Colony probe: ${report.windowSeconds.toFixed(1)} s at ${report.target.href}`);
+  lines.push(`Couch Colony probe: ${report.windowSeconds.toFixed(1)} s at ${report.target.href}`);
   lines.push(`Page: ${report.target.hidden ? 'hidden' : 'visible'}, ${report.colony.closed ? 'closed' : report.colony.compact ? 'compact' : `menu ${report.colony.menu}`}, ${report.target.viewport[0]}x${report.target.viewport[1]} @${report.target.viewport[2]}x, auto-buy ${(report.colony.autoBindings || []).length}${report.colony.autoPaused ? ' (paused)' : ''}`);
   if (habitat) lines.push(`Habitat: ${ms(habitat.achievedFps)}/${habitat.targetFps} fps, quality ${habitat.quality}, ${habitat.entities} entities, frame avg ${ms(habitat.averageFrameMs)} ms, peak ${ms(habitat.peakFrameMs)} ms, atlas ${mb(habitat.atlasBytes)}, canvas ${mb(habitat.canvasBytes)}`);
   else lines.push(`Habitat: no diagnostics${report.diagnosticsError ? ` (${report.diagnosticsError})` : ''}`);
@@ -334,7 +334,7 @@ async function main() {
   try {
     session = await connect();
   } catch (error) {
-    console.error(`[ROACH] probe: cannot reach the Roach Colony page at ${args.host}:${args.port}: ${error.message}`);
+    console.error(`[ROACH] probe: cannot reach the Couch Colony page at ${args.host}:${args.port}: ${error.message}`);
     process.exit(1);
   }
   let interrupted = false;
