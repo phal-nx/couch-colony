@@ -2376,9 +2376,9 @@
     closeDialog();
     act(action, '');
   };
-  // Remote keys whose DOM keyCodes are not identified yet. Put each code here once it is
-  // seen on the TV (unhandledKeys in colonyDiagnostics lists recent unclaimed codes).
-  var shortcutKeys = [{key: 'Movies', code: null, page: 'show-visitors'}, {key: '...', code: null, page: 'show-achievements'}];
+  // Remote shortcut keys. The "…" key reaches the overlay as 994 through colony-key.sh; Movies is not
+  // identified yet (unhandledKeys in colonyDiagnostics lists recent unclaimed codes).
+  var shortcutKeys = [{key: 'Movies', code: null, page: 'show-visitors'}, {key: '...', code: 994, page: 'show-achievements'}];
   var unhandledKeys = [0, 0, 0, 0, 0, 0, 0, 0];
   var unhandledCount = 0;
   function noteUnhandled(code) { unhandledKeys[unhandledCount % unhandledKeys.length] = code; unhandledCount++; }
@@ -2677,6 +2677,8 @@
       return {ok: true};
     },
     hide: close,
+    // The TV is about to start its screensaver, which closes the overlay: save first.
+    flush: function () { if (!closed) persist(); flushJournal(); },
     lastPurchase: function () { return lastPurchase && {type: lastPurchase.type, id: lastPurchase.id}; },
     autoState: function () { return {bindings: autoBindings.slice(), paused: autoPaused, info: session.inspectAuto(autoBindings, autoPaused, reserveTarget, snapshot, lastHoldReason)}; },
     panel: el('controller-panel')

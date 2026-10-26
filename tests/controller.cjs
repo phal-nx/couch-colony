@@ -69,7 +69,22 @@ function staticServer() {
 // ---- Bridge process ----
 const lunaLog = path.join(runDir, 'luna.log');
 const fakeLuna = path.join(runDir, 'luna-send');
-fs.writeFileSync(fakeLuna, '#!/bin/sh\nprintf "%s\\n" "$4" >> "$FAKE_LUNA_LOG"\necho \'{"returnValue":true}\'\n', {mode: 0o755});
+// Launches go to luna.log. The screensaver subscription (-i) replays screensaver.json whenever the test writes
+// it, and answers to the screensaver go to luna.log.power.
+const screensaverTrigger = path.join(runDir, 'screensaver.json');
+fs.writeFileSync(fakeLuna, `#!/bin/sh
+if [ "$1" = "-i" ]; then
+  echo '{"returnValue":true,"subscribed":true}'
+  while kill -0 $PPID 2>/dev/null; do
+    if [ -f "$FAKE_SCREENSAVER" ]; then cat "$FAKE_SCREENSAVER"; echo; rm -f "$FAKE_SCREENSAVER"; fi
+    sleep 0.2
+  done
+  exit 0
+fi
+case "$3" in *responseScreenSaverRequest) printf "%s\\n" "$4" >> "$FAKE_LUNA_LOG.power"; echo '{"returnValue":true}'; exit 0 ;; esac
+printf "%s\\n" "$4" >> "$FAKE_LUNA_LOG"
+echo '{"returnValue":true}'
+`, {mode: 0o755});
 function lunaLaunches() {
   return fs.existsSync(lunaLog) ? fs.readFileSync(lunaLog, 'utf8').split('\n').filter(Boolean).map(line => JSON.parse(line)) : [];
 }
@@ -83,7 +98,8 @@ async function startBridge(appOrigin) {
       ROACH_CONTROLLER_PORT: String(ports.phone), ROACH_CONTROLLER_GAME_PORT: String(ports.game),
       ROACH_CONTROLLER_BIND: '127.0.0.1', ROACH_CONTROLLER_DATA: path.join(runDir, 'data'),
       ROACH_CONTROLLER_KEY_FILE: path.join(runDir, 'key/game-key'), ROACH_CONTROLLER_LUNA_SEND: fakeLuna,
-      ROACH_CONTROLLER_HOST: '127.0.0.1', ROACH_CONTROLLER_GAME_ORIGINS: appOrigin, FAKE_LUNA_LOG: lunaLog
+      ROACH_CONTROLLER_HOST: '127.0.0.1', ROACH_CONTROLLER_GAME_ORIGINS: appOrigin, FAKE_LUNA_LOG: lunaLog,
+      FAKE_SCREENSAVER: screensaverTrigger
     },
     stdio: ['ignore', 'pipe', 'pipe']
   });
@@ -647,6 +663,25 @@ function ownedOf(result, id) {
       await closeMenu(game);
       const retry = await phone(second);
       assert.equal(retry.welcome.t, 'revoked');
+    });
+
+    await step('the screensaver warning saves the colony first, and the key fast path follows visibility', async () => {
+      const flag = path.join(runDir, 'key/game-visible');
+      await waitFor(async () => fs.existsSync(flag), 3000, 'visible flag');
+      await game.evaluate(() => document.dispatchEvent(new KeyboardEvent('keydown', {keyCode: 403, bubbles: true})));
+      assert.equal((await diagnostics(game)).pendingSave, true, 'a forage leaves a save pending');
+      fs.writeFileSync(screensaverTrigger, JSON.stringify({returnValue: true, state: 'Active', timestamp: 42}));
+      const answers = () => fs.existsSync(lunaLog + '.power') ? fs.readFileSync(lunaLog + '.power', 'utf8').split('\n').filter(Boolean).map(line => JSON.parse(line)) : [];
+      await waitFor(async () => answers().length > 0, 4000, 'screensaver answer');
+      assert.deepEqual(answers(), [{clientName: 'roach-colony-controller', ack: true, timestamp: 42}]);
+      assert.equal((await diagnostics(game)).pendingSave, false, 'the colony saved before the screensaver went ahead');
+      await blue(game);
+      await waitFor(async () => !fs.existsSync(flag), 3000, 'flag cleared while hidden');
+      fs.writeFileSync(screensaverTrigger, JSON.stringify({returnValue: true, state: 'Active', timestamp: 43}));
+      await waitFor(async () => answers().length > 1, 4000, 'answer while hidden');
+      assert.equal(answers()[1].timestamp, 43, 'a hidden colony never holds the screensaver back');
+      await blue(game);
+      await waitFor(async () => fs.existsSync(flag), 3000, 'flag back once shown');
     });
 
     await step('saves and the one-time reset receipt stay intact', async () => {

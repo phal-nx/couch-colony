@@ -66,5 +66,9 @@
   "401": {
     "action": "exec",
     "command": "/bin/sh /var/lib/webosbrew/roach-colony/blue-toggle.sh"
+  },
+  "994": {
+    "action": "exec",
+    "command": "/bin/sh /var/lib/webosbrew/roach-colony/colony-key.sh 994 994"
   }
 }

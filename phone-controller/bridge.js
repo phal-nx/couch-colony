@@ -166,6 +166,62 @@ function gameStatus() {
   return {t: 'status', game: game.visible ? 'live' : 'paused', session: game.session};
 }
 function sendGame(message) { if (game) game.conn.send(JSON.stringify(message)); }
+
+// ---- TV hooks ----
+// colony-key.sh hands a remote key to the overlay only while the colony is on screen. While the bridge runs,
+// this file is present exactly while the game reports itself visible, so a key pressed with the colony hidden
+// goes straight back to the TV without asking the surface manager twice.
+var visibleFile = path.join(path.dirname(config.keyFile), 'game-visible');
+var shownFlag = null;
+function markVisible() {
+  var shown = !!(game && game.visible);
+  if (shown === shownFlag) return;
+  shownFlag = shown;
+  try {
+    if (shown) fs.writeFileSync(visibleFile, '');
+    else fs.unlinkSync(visibleFile);
+  } catch (error) {
+    if (error.code !== 'ENOENT') log('[ROACH] controller: could not update ' + visibleFile + '.', error.message);
+  }
+}
+// The TV warns subscribers just before its screensaver starts, and the screensaver closes the overlay. The
+// game saves first; the bridge then lets the screensaver go ahead. It never holds the screensaver back.
+var POWER = 'luna://com.webos.service.tvpower/power/';
+var SCREENSAVER_CLIENT = 'roach-colony-controller';
+var flushing = null;
+var stopping = false;
+function watchScreensaver() {
+  var child = childProcess.spawn(config.lunaSend, ['-i', POWER + 'registerScreenSaverRequest', JSON.stringify({subscribe: true, clientName: SCREENSAVER_CLIENT})]);
+  var pending = '';
+  child.stdout.on('data', function (chunk) {
+    var lines = (pending + chunk).split('\n');
+    pending = lines.pop();
+    lines.forEach(function (line) {
+      var message;
+      try { message = JSON.parse(line.slice(line.indexOf('{'))); } catch (error) { return; }
+      if (message.state === 'Active') screensaverStarting(message.timestamp);
+    });
+  });
+  child.on('error', function (error) { log('[ROACH] controller: screensaver watch failed.', error.message); });
+  child.on('exit', function () { if (!stopping) setTimeout(watchScreensaver, 60000); });
+  watchScreensaver.child = child;
+}
+function screensaverStarting(timestamp) {
+  var answered = false;
+  function answer() {
+    if (answered) return;
+    answered = true;
+    flushing = null;
+    var payload = JSON.stringify({clientName: SCREENSAVER_CLIENT, ack: true, timestamp: timestamp});
+    childProcess.execFile(config.lunaSend, ['-n', '1', POWER + 'responseScreenSaverRequest', payload], {timeout: 10000}, function (error) {
+      if (error) log('[ROACH] controller: screensaver answer failed.', error.message);
+    });
+  }
+  if (!(game && game.visible)) { answer(); return; }
+  flushing = answer;
+  sendGame({t: 'flush'});
+  setTimeout(answer, 1500);
+}
 function remember(map, entries, limit) {
   var changed = {};
   var count = 0;
@@ -244,6 +300,7 @@ function handleGame(conn, request) {
       updateWatch();
       broadcast(gameStatus());
       log('[ROACH] controller: game connected', self.visible ? 'visible' : 'paused');
+      markVisible();
       return;
     }
     if (game !== self) return;
@@ -253,6 +310,9 @@ function handleGame(conn, request) {
       if (self.visible) launching = null;
       broadcast(gameStatus());
       if (self.visible) { watched = ''; updateWatch(); }
+      markVisible();
+    } else if (message.t === 'flushed') {
+      if (flushing) flushing();
     } else if (message.t === 'state' && typeof message.key === 'string') {
       stats.states++;
       absorb(message);
@@ -291,6 +351,8 @@ function handleGame(conn, request) {
     game = null;
     failPending('Lost contact with the colony. Checking what happened…');
     broadcast(gameStatus());
+    markVisible();
+    if (flushing) flushing();
     log('[ROACH] controller: game disconnected');
   });
 }
@@ -598,12 +660,18 @@ function listen(target, port, host, label, callback) {
 }
 listen(gameServer, config.gamePort, '127.0.0.1', 'game', function () {
   listen(server, config.port, config.bind, 'phone', function () {
+    markVisible();
+    watchScreensaver();
     log('[ROACH] controller: listening on ' + config.bind + ':' + config.port + ' (game socket 127.0.0.1:' + config.gamePort + ', ' + paired.length + ' paired phones, node ' + process.version + ')');
     if (process.send) process.send({ready: true, port: server.address().port, gamePort: gameServer.address().port});
   });
 });
 function shutdown() {
   clearInterval(keepAlive);
+  stopping = true;
+  if (watchScreensaver.child) watchScreensaver.child.kill();
+  game = null;
+  markVisible();
   if (saveTimer) savePhones(true);
   server.close();
   gameServer.close();

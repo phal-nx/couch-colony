@@ -90,8 +90,8 @@ webOS 5 or newer should work, but have not been tried. Reports are welcome.
    `/home/root/.config/lginputhook/keybinds.json`, keeping a backup of the old file. Input
    Hook reloads its configuration without a restart.
    - Blue (code 401) shows or hides the colony.
-   - Red, Green and Yellow (398 to 400) and the digits 0 to 9 are passed to the colony
-     while it is on screen.
+   - Red, Green and Yellow (398 to 400), the digits 0 to 9 and the "…" key (994) are
+     passed to the colony while it is on screen.
    - When the colony is not on screen, or it already has the remote, `colony-key.sh`
      sends the key back to the TV unchanged.
 
@@ -131,6 +131,7 @@ Swarm Simulator's original tutorial.
 | 8 | Collapsed: toggle Watch mode (only the hot bar stays). In the menu: details for the highlighted row |
 | 9 | Show the shortcut help |
 | 0 | Show a hint for your current stage |
+| … | Open Achievements |
 | Play / Pause, Stop | Resume or pause auto-buy, or clear it |
 | CH+ / CH− | Turn menu pages |
 | Arrows / OK / Back | Move, activate and close, as usual |

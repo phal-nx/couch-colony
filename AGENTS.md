@@ -45,7 +45,9 @@ Before changing architecture, UI, balance, or controller code, read the relevant
   `??`, `fs.promises`, `globalThis` or ES modules, and no dependencies beyond
   Node's own modules. Run `ROACH_BRIDGE_NODE=<node 8.12> npm run test:controller`.
 - The bridge relays only the listed colony operations. It must never run shell
-  commands other than `luna-send` launching `com.phil.roachcolony`, never simulate
+  commands other than `luna-send` launching `com.phil.roachcolony` and the tvpower
+  screensaver subscription and its `ack: true` answer (it lets the colony save, and
+  never holds the screensaver back), never simulate
   the colony, and never write the colony save. Keep it LAN-only with Host/Origin,
   size and rate checks; the game socket stays on 127.0.0.1 behind the per-boot key.
 - Phones never resume the colony; only an explicit Show does, and Show must stay
@@ -94,8 +96,8 @@ Before changing architecture, UI, balance, or controller code, read the relevant
   Digits 0–9 reach the app through Input Hook bindings for Linux codes 11 and 2–10
   (`scripts/tv/blue-keybind.json`).
   Bind auto-buy to stable IDs, run only while visible, and wait quietly for funds.
-  Movies (Visitors) and ellipsis (Achievements) wait in `shortcutKeys` in
-  `app/colony.js` until their codes are identified; `unhandledKeys` in
+  The ellipsis key (Input Hook code 994) opens Achievements; Movies (Visitors)
+  waits in `shortcutKeys` in `app/colony.js` until its code is identified; `unhandledKeys` in
   `colonyDiagnostics()` lists recent unclaimed key codes.
 
 ## Source and verification

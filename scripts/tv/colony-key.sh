@@ -6,11 +6,20 @@
 # focused app (YouTube, or the colony's own menu) receives it unchanged.
 APP=${3:-com.phil.roachcolony}
 SM=luna://com.webos.surfacemanager
+RUN=/tmp/roach-colony-controller
+writeback() {
+  exec /usr/bin/python -c 'import os,struct,sys
+f=os.open("/dev/input/event3",os.O_WRONLY)
+for v in (1,0):os.write(f,struct.pack("llHHillHHi",0,0,1,int(sys.argv[1]),v,0,0,0,0,0))
+' "$1"
+}
+# While the phone bridge runs it keeps game-visible present exactly while the colony is showing,
+# so a key pressed with the colony hidden goes straight back without two surface manager queries.
+if [ ! -f "$RUN/game-visible" ] && [ -f "$RUN/bridge.pid" ] && kill -0 "$(cat "$RUN/bridge.pid")" 2>/dev/null; then
+  writeback "$1"
+fi
 if luna-send -n 1 $SM/getForegroundWindowInfo '{}' | grep -q "\"$APP\"" &&
    ! luna-send -n 1 $SM/getFocusedWindowInfo '{}' | grep -q "\"$APP\""; then
   exec luna-send -n 1 luna://com.webos.applicationManager/launch "{\"id\":\"$APP\",\"params\":{\"remoteKey\":$2}}" >/dev/null
 fi
-exec /usr/bin/python -c 'import os,struct,sys
-f=os.open("/dev/input/event3",os.O_WRONLY)
-for v in (1,0):os.write(f,struct.pack("llHHillHHi",0,0,1,int(sys.argv[1]),v,0,0,0,0,0))
-' "$1"
+writeback "$1"

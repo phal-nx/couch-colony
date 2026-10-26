@@ -109,6 +109,9 @@
         updateTimer();
       } else if (message.t === 'refresh') {
         if (api.open()) sendState(cleanView(message.view));
+      } else if (message.t === 'flush') {
+        if (api.flush) api.flush();
+        send({t: 'flushed', id: message.id});
       } else if (message.t === 'cmd') {
         command(message);
       } else if (message.t === 'pair') {
